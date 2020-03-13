@@ -1,14 +1,19 @@
 #include<iostream>
 #include<vector>
 #include <Windows.h>
+#include<stdio.h>
 
 using namespace std;
 
-struct Position {
-	int x;
+struct Position 
+{
+	int x;	
 	int y;
 };
-class Object {
+
+
+class Object 
+{
 private:
 	string name;
 	Position position = {0,0};
@@ -23,38 +28,77 @@ public:
 	}
 };
 
-class Map {
+class Map 
+{
 
 private:
-	vector<vector<int>> map;
+	int XSIZE;
+	int YSIZE;
+	vector<vector<int>> lastMap;
 
 public:
-	void mapInitialization(int XSIZE, int YSIZE)	//map initialization
+
+	vector<vector<int>> currentMap;		//Pls, move to private
+
+	void Initialization(int XSIZE, int YSIZE)	//map initialization
 	{
+		this->XSIZE = XSIZE;
+		this->YSIZE = YSIZE;
 		for (int i = 0; i < YSIZE; i++)
 		{
 			vector<int> tmp;
-			map.push_back(tmp);
+			currentMap.push_back(tmp);
+			lastMap.push_back(tmp);
 			for (int j = 0; j < XSIZE; j++)
 			{
-				map[i].push_back(0);
+				currentMap[i].push_back(0);
+				lastMap[i].push_back(0);
 			}
 		}
 	}
-	void mapPrint()
+	void Print()
 	{
-		for (auto i : map)
+		for (auto y : currentMap)
 		{
-			for (auto j : i)
+			for (auto x : y)
 			{
-				cout << j << " ";
+				printf("%d", x);
+				//wprintf(L"%lc",j);
 			}
-			cout << endl;
+			printf("\n");
 		}
+	}
+	void CopyCurrentMap() 
+	{
+		for (int y = 0; y < YSIZE; y++)
+		{
+			for (int x = 0; x < XSIZE; x++)
+			{
+				lastMap[y][x] = currentMap[y][x];
+			}
+		}
+	}
+
+	vector<Position> ModifiedMap() 
+	{
+		vector<Position> positions;
+		for (int y = 0; y < YSIZE; y++)
+		{
+			for (int x = 0; x < XSIZE; x++)
+			{
+				if (currentMap[y][x] != lastMap[y][x]) {
+					positions.push_back({ x,y });
+				}
+			}
+		}
+
+		return positions;
+
 	}
 };
 
-class Hierarchy {
+class Hierarchy 
+{
 public:
 	vector<Object> object;
 
@@ -63,7 +107,8 @@ public:
 	}
 };
 
-class Tools {
+class Tools 
+{
 public:
 
 	
@@ -82,7 +127,8 @@ public:
 
 
 
-int main() {
+int main() 
+{
 
 	const int XSIZE = 20;
 	const int YSIZE = 20;
@@ -92,9 +138,31 @@ int main() {
 	Tools tool;
 	Map map;
 
-	map.mapInitialization(XSIZE, YSIZE);
+	map.Initialization(XSIZE, YSIZE);
+	map.Print();
 
-	
+	int i = 0;
 
+	while (true)
+	{
+		map.CopyCurrentMap();
+
+
+		//change current Map if input or prosses
+		map.currentMap[2][5] = 10;
+
+
+		vector<Position> v = map.ModifiedMap();
+
+		for (auto i : v)
+		{
+			tool.cersorMoveTo(i.x, i.y);
+			printf("%d", map.currentMap[i.y][i.x]);
+		}
+
+		tool.backCersor();
+	}
+
+	return 0;
 	
 }
