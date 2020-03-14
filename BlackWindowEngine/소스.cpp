@@ -157,7 +157,17 @@ public:
 	}
 };
 
-
+class Game
+{
+public:
+	Game() {};
+	virtual void Create() = 0;			//Called when the Application is first created.
+	virtual void Render(float dt) = 0;
+	virtual void Resize(int x, int y) = 0;
+	virtual void Input(float dt) = 0;	
+	virtual void Pause() = 0;			//Stop Game
+	virtual ~Game() {};				//Called when this Game should release all resources.
+};
 int main() 
 {
 
@@ -166,7 +176,7 @@ int main()
 	Time time;
 	Tools tool;
 	Map map = Map();
-	//map.Print();
+	map.Print();
 
 
 	bool i = true;
