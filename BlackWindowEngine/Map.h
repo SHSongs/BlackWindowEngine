@@ -23,9 +23,7 @@ public:
 	vector<vector<int>>* currentMap;
 	Map()
 	{
-		this->XSIZE = 20;
-		this->YSIZE = 20;
-		MapInit();
+		this->Map::Map(20, 20);
 	}
 	Map(int XSIZE, int YSIZE)
 	{
