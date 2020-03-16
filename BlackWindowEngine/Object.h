@@ -14,14 +14,51 @@ class Object
 {
 private:
 	string name;
-	Position position = { 0,0 };
+	string shape;
+	Position position;
+	int number;
 public:
-	Position getPosition()
+	Object()
+	{
+		this->Object::Object({ 0,0 });
+	}
+	Object(Position p)
+	{
+
+		this->name = "object";
+		this->shape = "1";
+		this->position = p;
+		this->number = 0;
+
+	}
+
+	Position GetPosition()
 	{
 		return position;
 	}
-	void setPosition(Position p)
+	void SetPosition(Position p)
 	{
 		position = p;
+	}
+
+	string GetShape()
+	{
+		return shape;
+	}
+	void SetShape(string shape)
+	{
+		// if shape size is 1 : add " "
+		
+		
+		this->shape = shape;
+	}
+
+	int GetNumber() 
+	{
+		return number;
+	}
+	void SetNumber(int number)
+	{
+		this->number = number;
 	}
 };

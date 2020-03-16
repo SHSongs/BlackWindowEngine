@@ -14,7 +14,10 @@ using namespace std;
 class BasicScene : public SceneLifeCycle
 {
 public:
-	BasicScene() {};
+	BasicScene():SceneLifeCycle()
+	{
+
+	}
 	void Create()
 	{
 
@@ -35,5 +38,8 @@ public:
 	{
 
 	}
-	~BasicScene() {};
+	~BasicScene()
+	{
+
+	}
 };

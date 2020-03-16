@@ -41,7 +41,23 @@ public:
 		while (true)
 		{
 			time.StartMeasure();
+
+
+			scene->map.CopyCurrentMap();
+
+			//strat
 			scene->Render(time.deltaTime);
+			//end
+
+			vector<Position> v = scene->map.ModifiedMap();
+			for (auto i : v)
+			{
+				scene->tool.cersorMoveTo({ i.x, i.y });
+				cout << scene->map.GetPartOfMap({ i.x, i.y });
+			}
+			scene->tool.backCersor();
+
+
 
 			time.EndMeasure();
 		}

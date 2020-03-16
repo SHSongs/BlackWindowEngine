@@ -23,15 +23,15 @@ class Tools
 {
 public:
 
-	void cersorMoveTo(const int x, const int y)
+	void cersorMoveTo(Position p)
 	{
-		COORD position = { x, y };
+		COORD position = { p.x, p.y };
 		static HANDLE handle;
 		handle = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleCursorPosition(handle, position);
 	}
 	void backCersor() {
-		cersorMoveTo(0, 0);
+		cersorMoveTo({ 0, 0 });
 	}
 
 };

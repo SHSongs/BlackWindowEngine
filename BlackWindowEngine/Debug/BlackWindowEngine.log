@@ -1,4 +1,4 @@
 ﻿  Main.cpp
-D:\source\BlackWindowEngine\BlackWindowEngine\WorldOutliner.h(28,22): warning C4838: 'const int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-D:\source\BlackWindowEngine\BlackWindowEngine\WorldOutliner.h(28,25): warning C4838: 'const int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+D:\source\BlackWindowEngine\BlackWindowEngine\WorldOutliner.h(28,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+D:\source\BlackWindowEngine\BlackWindowEngine\WorldOutliner.h(28,28): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
   BlackWindowEngine.vcxproj -> D:\source\BlackWindowEngine\Debug\BlackWindowEngine.exe

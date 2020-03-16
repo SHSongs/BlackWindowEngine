@@ -1,19 +1,5 @@
 #pragma once
 
-#include<iostream>
-#include<vector>
-#include <Windows.h>
-#include<chrono>
-
-
-#include "Position.h"
-#include "Map.h"
-#include "SceneLifeCycle.h"
-#include "Object.h"
-#include "WorldOutliner.h"
-#include "Time.h"
-
-
 #include "SceneLifeCycle.h"
 
 
@@ -22,41 +8,36 @@ using namespace std;
 class FirstScene : public SceneLifeCycle
 {
 private:
-	WorldOutliner worldOutliner;
-	Tools tool;
-	Map map;
+	Object ob;
 	bool i = true;
 
 public:
-	FirstScene() {};
+
+	FirstScene() : SceneLifeCycle()
+	{
+		ob = Object({ 5,5 });
+	};
 	void Create()
 	{
-		worldOutliner = WorldOutliner();
-		tool = Tools();
-		map = Map();
-
 		map.Print();
 	}
 	void Render(float dt)
 	{
-		map.CopyCurrentMap();
-		if (i) {
-			map.SetPartOfMap(5, 10, 2);
+		
+		if (i)
+		{
+			ob.SetNumber(8);
 			i = false;
 		}
-		else {
-			map.SetPartOfMap(5, 10, 0);
+		else 
+		{
+			ob.SetNumber(1);
 			i = true;
 		}
 
-		vector<Position> v = map.ModifiedMap();
 
-		for (auto i : v)
-		{
-			tool.cersorMoveTo(i.x, i.y);
-			cout << map.GetPartOfMap(i.x, i.y);
-		}
-		tool.backCersor();
+		SceneLifeCycle::UploadMap(ob);
+
 	}
 	void Resize(int x, int y)
 	{
@@ -70,5 +51,8 @@ public:
 	{
 
 	}
-	~FirstScene() {};
+	~FirstScene() 
+	{
+
+	}
 };

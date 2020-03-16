@@ -2,13 +2,9 @@
 
 #include<iostream>
 #include<vector>
-#include <Windows.h>
-#include<chrono>
 
 
 using namespace std;
-
-
 
 
 class Map
@@ -18,9 +14,12 @@ private:
 	int XSIZE;
 	int YSIZE;
 	vector<vector<int>>* lastMap;
+	vector<vector<int>>* currentMap;
+
+
+
 public:
 
-	vector<vector<int>>* currentMap;
 	Map()
 	{
 		this->Map::Map(20, 20);
@@ -31,7 +30,7 @@ public:
 		this->YSIZE = YSIZE;
 		MapInit();
 	}
-
+	
 	void MapInit()
 	{
 		lastMap = new vector<vector<int>>(YSIZE, vector<int>(XSIZE, 0));
@@ -70,12 +69,15 @@ public:
 		return positions;
 	}
 
-	int GetPartOfMap(int x, int y)			//Pls, change bast method name
+	int GetPartOfMap(Position p)			//Pls, change bast method name
 	{
-		return currentMap->at(y).at(x);
+		return currentMap->at(p.y).at(p.x);
 	}
-	void SetPartOfMap(int x, int y, int change)	//Pls, change the change variable best name
+
+	void SetPartOfMap(Position p, int change)	//Pls, change the change variable best name
 	{
-		currentMap->at(y).at(x) = change;
+		currentMap->at(p.y).at(p.x) = change;
 	}
+
+	
 };
