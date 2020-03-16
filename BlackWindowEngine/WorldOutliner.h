@@ -10,28 +10,29 @@ using namespace std;
 class WorldOutliner
 {
 private:
-	vector<Object> object;
+	vector<Object> objects;
 
 public:
-	// add Obgect
-
-	Object findObject(string name) {
-
-	}
-};
-class Tools
-{
-public:
-
-	void cersorMoveTo(Position p)
+	void AddObject(Object o)
 	{
-		COORD position = { p.x, p.y };
-		static HANDLE handle;
-		handle = GetStdHandle(STD_OUTPUT_HANDLE);
-		SetConsoleCursorPosition(handle, position);
-	}
-	void backCersor() {
-		cersorMoveTo({ 0, 0 });
+		objects.push_back(o);
 	}
 
+	Object FindObject(string name)
+	{
+		for (auto o : objects)
+		{
+			if (name.compare(o.GetName()))
+			{
+				return o;
+			}
+		}
+
+		//return NULL;
+	}
+
+	vector<Object> GetObjects()
+	{
+		return objects;
+	}
 };

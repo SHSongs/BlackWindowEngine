@@ -11,14 +11,14 @@
 #include "Object.h"
 #include "WorldOutliner.h"
 #include "Time.h"
-
+#include "Tools.h"
 
 
 class SceneLifeCycle
 {
 protected:
-	WorldOutliner worldOutliner;
 public:
+	WorldOutliner worldOutliner;
 	Map map;
 	Tools tool;
 
@@ -42,7 +42,10 @@ public:
 
 	void UploadMap(vector<Object> vecO)
 	{
-
+		for (auto o : vecO)
+		{
+			map.SetPartOfMap(o.GetPosition(), o.GetNumber());
+		}
 	}
 
 };

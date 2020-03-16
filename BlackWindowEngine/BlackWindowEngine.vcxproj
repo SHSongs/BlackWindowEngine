@@ -147,6 +147,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="Tools.h" />
     <ClInclude Include="WorldOutliner.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Position.h" />

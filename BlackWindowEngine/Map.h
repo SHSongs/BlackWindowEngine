@@ -13,12 +13,11 @@ class Map
 private:
 	int XSIZE;
 	int YSIZE;
-	vector<vector<int>>* lastMap;
-	vector<vector<int>>* currentMap;
-
-
 
 public:
+
+	vector<vector<int>>* lastMap;
+	vector<vector<int>>* currentMap;
 
 	Map()
 	{
@@ -49,9 +48,11 @@ public:
 			cout << "\n";
 		}
 	}
-	void CopyCurrentMap()
+	void CopyCurrentMapANDRemoveCurrentMap()
 	{
 		*lastMap = *currentMap;
+		currentMap->clear();
+		currentMap = new vector<vector<int>>(YSIZE, vector<int>(XSIZE, 0));
 	}
 
 	vector<Position> ModifiedMap()
@@ -69,6 +70,7 @@ public:
 		return positions;
 	}
 
+	
 	int GetPartOfMap(Position p)			//Pls, change bast method name
 	{
 		return currentMap->at(p.y).at(p.x);

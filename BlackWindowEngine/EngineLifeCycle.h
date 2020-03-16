@@ -43,11 +43,13 @@ public:
 			time.StartMeasure();
 
 
-			scene->map.CopyCurrentMap();
+			scene->map.CopyCurrentMapANDRemoveCurrentMap();
 
 			//strat
 			scene->Render(time.deltaTime);
 			//end
+
+			scene->SceneLifeCycle::UploadMap(scene->worldOutliner.GetObjects());
 
 			vector<Position> v = scene->map.ModifiedMap();
 			for (auto i : v)
@@ -56,7 +58,6 @@ public:
 				cout << scene->map.GetPartOfMap({ i.x, i.y });
 			}
 			scene->tool.backCersor();
-
 
 
 			time.EndMeasure();

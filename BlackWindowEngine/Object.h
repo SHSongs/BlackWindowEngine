@@ -24,12 +24,19 @@ public:
 	}
 	Object(Position p)
 	{
-
 		this->name = "object";
 		this->shape = "1";
 		this->position = p;
 		this->number = 0;
+	}
 
+	string GetName()
+	{
+		return name;
+	}
+	void SetName(string name)
+	{
+		this->name = name;
 	}
 
 	Position GetPosition()
@@ -49,7 +56,6 @@ public:
 	{
 		// if shape size is 1 : add " "
 		
-		
 		this->shape = shape;
 	}
 
@@ -60,5 +66,12 @@ public:
 	void SetNumber(int number)
 	{
 		this->number = number;
+	}
+
+
+	void Translate(Position p)
+	{
+		this->position.x += p.x;
+		this->position.y += p.y;
 	}
 };

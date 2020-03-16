@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-    EngineLifeCycle Engine = EngineLifeCycle(new FirstScene());
+    EngineLifeCycle Engine = EngineLifeCycle(new TestScene());
 
     return 0;
 }
