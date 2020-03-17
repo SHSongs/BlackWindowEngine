@@ -12,13 +12,13 @@ class SceneLifeCycle
 protected:
 public:
 	WorldOutliner worldOutliner;
-	Map map;
+	Map* mapPointer;
 
 	SceneLifeCycle()
 	{
 		worldOutliner = WorldOutliner();
-		map = Map();
 	};
+	
 	virtual void Create() = 0;			//Called when the Application is first created.
 	virtual void Render(float dt) = 0;
 	virtual void Resize(int x, int y) = 0;
@@ -28,14 +28,23 @@ public:
 
 	void UploadMap(Object o)
 	{
-		map.SetPartOfMap(o.GetPosition(), o.GetNumber());
+		mapPointer->SetPartOfMap(o.GetPosition(), o.GetNumber());
 	}
 
 	void UploadMap(vector<Object> vecO)
 	{
 		for (auto o : vecO)
 		{
-			map.SetPartOfMap(o.GetPosition(), o.GetNumber());
+			try
+			{
+				mapPointer->SetPartOfMap(o.GetPosition(), o.GetNumber());
+			}
+			catch (exception e)
+			{
+				Tools::cersorMoveTo(Position({ 0, mapPointer->GetYSIZE() + 2 }));
+				cout << "ERROR : out of Map" << endl;
+				Tools::backCersor();
+			}
 		}
 	}
 

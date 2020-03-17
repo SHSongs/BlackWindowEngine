@@ -2,7 +2,7 @@
 
 #include<iostream>
 #include<vector>
-
+#include"Tools.h"
 
 using namespace std;
 
@@ -76,15 +76,12 @@ public:
 
 	void SetPartOfMap(Position p, int change)	//Pls, change the change variable best name
 	{
-		try
-		{
-			currentMap->at(p.y).at(p.x) = change;
-		}
-		catch (exception e)
-		{
+		currentMap->at(p.y).at(p.x) = change;
+	}
 
-		}
-		
+	int GetYSIZE()
+	{
+		return YSIZE;
 	}
 
 	

@@ -29,19 +29,20 @@ public:
 	EngineLifeCycle(SceneLifeCycle* scene)
 	{
 		this->scene = scene;
-
 		start();
 	}
 	void start()
 	{
 		scene->Create();
+		scene->mapPointer->Print();
+
 
 		while (true)
 		{
 			time.StartMeasure();
 
 
-			scene->map.CopyCurrentMapANDRemoveCurrentMap();
+			scene->mapPointer->CopyCurrentMapANDRemoveCurrentMap();
 
 			
 			//strat
@@ -50,11 +51,11 @@ public:
 
 			scene->SceneLifeCycle::UploadMap(scene->worldOutliner.GetObjects());
 
-			vector<Position> v = scene->map.ModifiedMap();
+			vector<Position> v = scene->mapPointer->ModifiedMap();
 			for (auto i : v)
 			{
 				Tools::cersorMoveTo({ i.x, i.y });
-				cout << scene->map.GetPartOfMap({ i.x, i.y });
+				cout << scene->mapPointer->GetPartOfMap({ i.x, i.y });
 			}
 			Tools::backCersor();
 

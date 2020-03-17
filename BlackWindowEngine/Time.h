@@ -11,6 +11,10 @@ private:
 public:
 	float deltaTime = 0;
 
+	Time()
+	{
+
+	}
 	void StartMeasure()
 	{
 		fps++;
@@ -20,7 +24,7 @@ public:
 	void EndMeasure()
 	{
 		elapsed_time += deltaTime;
-		Sleep(1000);				// if delta time -> 0    time goes slowly
+		Sleep(100);				// if delta time -> 0    time goes slowly
 		QueryPerformanceCounter(&end);
 		deltaTime = (end.QuadPart - start.QuadPart) / (float)f.QuadPart;
 	}
