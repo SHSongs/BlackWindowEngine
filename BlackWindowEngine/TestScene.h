@@ -25,7 +25,6 @@ public:
 	{
 		dynamic_cast<Canon*>(worldOutliner.FindObject("canon1"))->DoNothing();	
 		worldOutliner.FindObject("canon1")->Work();
-
 	}
 	void Resize(int x, int y)
 	{
