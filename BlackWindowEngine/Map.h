@@ -59,7 +59,7 @@ public:
 			for (int x = 0; x < XSIZE; x++)
 			{
 				if (currentMap->at(y).at(x) != lastMap->at(y).at(x))
-					positions.push_back({ x,y });
+					positions.push_back({x,y});
 			}
 		}
 

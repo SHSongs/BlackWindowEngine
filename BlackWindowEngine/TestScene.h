@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Canon.h"
 #include "SceneLifeCycle.h"
 
 
@@ -16,18 +17,15 @@ public:
 	};
 	void Create()
 	{
-		worldOutliner.AddObject(new Object(Position({ 0,0 }), "o1", "¡ß"));
+		worldOutliner.AddObject(new Canon(FPosition({ 0,0 }), "canon1", "¡Û","¡Ü"));
 		
 	}
 
 	void Render(float dt)
 	{
-		Object* o = worldOutliner.FindObject("o1");
+		dynamic_cast<Canon*>(worldOutliner.FindObject("canon1"))->DoNothing();	
+		worldOutliner.FindObject("canon1")->Work();
 
-		o->Translate(Position({ 1,1 }));
-
-
-		
 	}
 	void Resize(int x, int y)
 	{

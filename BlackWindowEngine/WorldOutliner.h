@@ -31,10 +31,10 @@ public:
 		}
 		catch(exception e)
 		{
-				Tools::cersorMoveTo(Position({ 20, 30 }));
-				cout << "ERROR : Not found" << name << endl;
-				Tools::backCersor();
-			
+			Tools::cersorMoveTo(Position({ 20, 30 }));
+			cout << "ERROR : Not found" << name << endl;
+			Tools::backCersor();
+			return nullptr;
 		}
 
 	}

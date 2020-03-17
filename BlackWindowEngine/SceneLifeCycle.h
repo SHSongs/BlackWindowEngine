@@ -30,7 +30,7 @@ public:
 
 	void UploadMap(Object* o)
 	{
-		mapPointer->SetPartOfMap(o->GetPosition(), o->GetShape());
+		mapPointer->SetPartOfMap(PositionTools::FPtoIP(o->GetPosition()), o->GetShape());
 	}
 
 	void UploadMap(vector<Object*> obs)
@@ -39,7 +39,7 @@ public:
 		{
 			try
 			{
-				mapPointer->SetPartOfMap(o->GetPosition(), o->GetShape());
+				mapPointer->SetPartOfMap(PositionTools::FPtoIP(o->GetPosition()), o->GetShape());
 			}
 			catch (exception e)
 			{

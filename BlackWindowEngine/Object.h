@@ -11,20 +11,20 @@ using namespace std;
 
 class Object
 {
-private:
+protected:
 	string name;
 	string shape;
-	Position position;
+	FPosition position;
 public:
 	Object()
 	{
 		this->Object::Object({ 0,0 });
 	}
-	Object(Position p)
+	Object(FPosition p)
 	{
 		this->Object::Object(p, "object", "бр");
 	}
-	Object(Position p, string name, string shape)
+	Object(FPosition p, string name, string shape)
 	{
 		this->name = name;
 		this->shape = shape;
@@ -40,11 +40,11 @@ public:
 		this->name = name;
 	}
 
-	Position GetPosition()
+	FPosition GetPosition()
 	{
 		return position;
 	}
-	void SetPosition(Position p)
+	void SetPosition(FPosition p)
 	{
 		position = p;
 	}
@@ -60,11 +60,13 @@ public:
 	}
 
 
-	void Translate(Position p)
+	void Translate(FPosition p)
 	{
 		this->position.x += p.x;
 		this->position.y += p.y;
 	}
+
+	virtual void Work() = 0;
 };
 
 
