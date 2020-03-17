@@ -28,18 +28,18 @@ public:
 	virtual void Pause() = 0;			//Stop Game
 	virtual ~SceneLifeCycle() {};				//Called when this Game should release all resources.
 
-	void UploadMap(Object o)
+	void UploadMap(Object* o)
 	{
-		mapPointer->SetPartOfMap(o.GetPosition(), o.GetShape());
+		mapPointer->SetPartOfMap(o->GetPosition(), o->GetShape());
 	}
 
-	void UploadMap(vector<Object> obs)
+	void UploadMap(vector<Object*> obs)
 	{
 		for (auto o : obs)
 		{
 			try
 			{
-				mapPointer->SetPartOfMap(o.GetPosition(), o.GetShape());
+				mapPointer->SetPartOfMap(o->GetPosition(), o->GetShape());
 			}
 			catch (exception e)
 			{

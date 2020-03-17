@@ -9,21 +9,21 @@ using namespace std;
 class WorldOutliner
 {
 private:
-	vector<Object> objects;
+	vector<Object*> objects;
 
 public:
-	void AddObject(Object o)
+	void AddObject(Object* o)
 	{
 		objects.push_back(o);
 	}
 
-	Object FindObject(string name)
+	Object* FindObject(string name)
 	{
 		try
 		{
 			for (auto& o : objects)
 			{
-				if (name.compare(o.GetName()) == 0)
+				if (name.compare(o->GetName()) == 0)
 				{
 					return o;
 				}
@@ -39,7 +39,7 @@ public:
 
 	}
 
-	vector<Object> GetObjects()
+	vector<Object*> GetObjects()
 	{
 		return objects;
 	}
