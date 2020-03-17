@@ -17,17 +17,18 @@ public:
 		objects.push_back(o);
 	}
 
-	Object FindObject(string name)
+	vector<Object> FindObject(string name)
 	{
+		vector<Object> obs;
 		for (auto o : objects)
 		{
 			if (name.compare(o.GetName()))
 			{
-				return o;
+				obs.push_back(o);
 			}
 		}
 
-		//return NULL;
+		return obs;
 	}
 
 	vector<Object> GetObjects()

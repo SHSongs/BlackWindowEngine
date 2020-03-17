@@ -24,9 +24,13 @@ public:
 	Object(Position p)
 	{
 		this->name = "object";
-		this->shape = "1";
+		this->shape = "бр";
 		this->position = p;
 		this->number = 0;
+	}
+	Object(Position p, string name, string shape)
+	{
+
 	}
 
 	string GetName()
@@ -54,7 +58,6 @@ public:
 	void SetShape(string shape)
 	{
 		// if shape size is 1 : add " "
-		
 		this->shape = shape;
 	}
 
@@ -72,5 +75,18 @@ public:
 	{
 		this->position.x += p.x;
 		this->position.y += p.y;
+	}
+};
+
+
+class ObjectList
+{
+public:
+	vector<Object> list;
+	string name;
+
+	ObjectList(string name)
+	{
+
 	}
 };

@@ -49,7 +49,7 @@ public:
 			scene->Render(time.deltaTime);
 			//end
 
-			scene->SceneLifeCycle::UploadMap(scene->worldOutliner.GetObjects());
+			//scene->SceneLifeCycle::UploadMap(scene->worldOutliner.GetObjects());
 
 			vector<Position> v = scene->mapPointer->ModifiedMap();
 			for (auto i : v)

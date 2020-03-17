@@ -8,7 +8,6 @@ using namespace std;
 class TestScene : public SceneLifeCycle
 {
 private:
-	vector<Object> obs;
 public:
 
 	TestScene() : SceneLifeCycle()
@@ -17,20 +16,17 @@ public:
 	};
 	void Create()
 	{
+		worldOutliner.AddObject(Object(Position({ 1,2 }), "o1", "¡ß"));
+		worldOutliner.AddObject(Object(Position({ 1,3 }), "o2", "¡ß"));
+
 		for (int i = 0; i < 10; i++)
 		{
-			obs.push_back(Object({ i, 0 }));
-			obs[i].SetNumber(2);
 		}
 	}
 
 	void Render(float dt)
 	{
-		for (auto& o : obs)
-		{
-			o.Translate(Position({ 0,1 }));
-		}
-		SceneLifeCycle::UploadMap(obs);
+		
 	}
 	void Resize(int x, int y)
 	{
