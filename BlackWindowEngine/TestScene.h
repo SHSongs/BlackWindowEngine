@@ -16,16 +16,13 @@ public:
 	};
 	void Create()
 	{
-		worldOutliner.AddObject(Object(Position({ 1,2 }), "o1", "¡ß"));
-		worldOutliner.AddObject(Object(Position({ 1,3 }), "o2", "¡ß"));
-
-		for (int i = 0; i < 10; i++)
-		{
-		}
+		worldOutliner.AddObject(Object(Position({ 0,0 }), "o1", "¡ß"));
+		
 	}
 
 	void Render(float dt)
 	{
+		worldOutliner.FindObject("o1").Translate(Position({1,1}));
 		
 	}
 	void Resize(int x, int y)

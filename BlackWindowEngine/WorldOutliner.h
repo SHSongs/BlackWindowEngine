@@ -17,18 +17,26 @@ public:
 		objects.push_back(o);
 	}
 
-	vector<Object> FindObject(string name)
+	Object FindObject(string name)
 	{
-		vector<Object> obs;
-		for (auto o : objects)
+		try
 		{
-			if (name.compare(o.GetName()))
+			for (auto& o : objects)
 			{
-				obs.push_back(o);
+				if (name.compare(o.GetName()) == 0)
+				{
+					return o;
+				}
 			}
 		}
+		catch(exception e)
+		{
+				Tools::cersorMoveTo(Position({ 20, 30 }));
+				cout << "ERROR : Not found" << name << endl;
+				Tools::backCersor();
+			
+		}
 
-		return obs;
 	}
 
 	vector<Object> GetObjects()

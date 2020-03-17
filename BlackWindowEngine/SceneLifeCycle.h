@@ -4,6 +4,8 @@
 #include "Object.h"
 #include "Map.h"
 #include "SceneLifeCycle.h"
+
+#include "Tools.h"
 #include "WorldOutliner.h"
 
 
@@ -28,16 +30,16 @@ public:
 
 	void UploadMap(Object o)
 	{
-		mapPointer->SetPartOfMap(o.GetPosition(), o.GetNumber());
+		mapPointer->SetPartOfMap(o.GetPosition(), o.GetShape());
 	}
 
-	void UploadMap(vector<Object> vecO)
+	void UploadMap(vector<Object> obs)
 	{
-		for (auto o : vecO)
+		for (auto o : obs)
 		{
 			try
 			{
-				mapPointer->SetPartOfMap(o.GetPosition(), o.GetNumber());
+				mapPointer->SetPartOfMap(o.GetPosition(), o.GetShape());
 			}
 			catch (exception e)
 			{

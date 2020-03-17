@@ -1,12 +1,10 @@
 #pragma once
 #include<iostream>
 #include<vector>
-#include <Windows.h>
 
 #include "Position.h"
 #include "Map.h"
 #include "SceneLifeCycle.h"
-#include "WorldOutliner.h"
 #include "Time.h"
 #include "BasicScene.h"
 #include "Tools.h"
@@ -36,7 +34,9 @@ public:
 		scene->Create();
 		scene->mapPointer->Print();
 
-
+		 
+		 
+		
 		while (true)
 		{
 			time.StartMeasure();
@@ -49,7 +49,7 @@ public:
 			scene->Render(time.deltaTime);
 			//end
 
-			//scene->SceneLifeCycle::UploadMap(scene->worldOutliner.GetObjects());
+			scene->SceneLifeCycle::UploadMap(scene->worldOutliner.GetObjects());
 
 			vector<Position> v = scene->mapPointer->ModifiedMap();
 			for (auto i : v)

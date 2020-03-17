@@ -15,7 +15,6 @@ private:
 	string name;
 	string shape;
 	Position position;
-	int number;
 public:
 	Object()
 	{
@@ -23,14 +22,13 @@ public:
 	}
 	Object(Position p)
 	{
-		this->name = "object";
-		this->shape = "бр";
-		this->position = p;
-		this->number = 0;
+		this->Object::Object(p, "object", "бр");
 	}
 	Object(Position p, string name, string shape)
 	{
-
+		this->name = name;
+		this->shape = shape;
+		this->position = p;
 	}
 
 	string GetName()
@@ -59,15 +57,6 @@ public:
 	{
 		// if shape size is 1 : add " "
 		this->shape = shape;
-	}
-
-	int GetNumber() 
-	{
-		return number;
-	}
-	void SetNumber(int number)
-	{
-		this->number = number;
 	}
 
 

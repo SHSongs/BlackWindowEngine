@@ -2,8 +2,6 @@
 
 #include<iostream>
 #include<vector>
-#include"Tools.h"
-
 using namespace std;
 
 class Map
@@ -14,8 +12,8 @@ private:
 	int YSIZE;
 public:
 
-	vector<vector<int>>* lastMap;
-	vector<vector<int>>* currentMap;
+	vector<vector<string>>* lastMap;
+	vector<vector<string>>* currentMap;
 
 	Map()
 	{
@@ -30,8 +28,8 @@ public:
 	
 	void MapInit()
 	{
-		lastMap = new vector<vector<int>>(YSIZE, vector<int>(XSIZE, 0));
-		currentMap = new vector<vector<int>>(YSIZE, vector<int>(XSIZE, 0));
+		lastMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "бр"));
+		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "бр"));
 
 	}
 
@@ -50,7 +48,7 @@ public:
 	{
 		*lastMap = *currentMap;
 		currentMap->clear();
-		currentMap = new vector<vector<int>>(YSIZE, vector<int>(XSIZE, 0));
+		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "бр"));
 	}
 
 	vector<Position> ModifiedMap()
@@ -69,12 +67,12 @@ public:
 	}
 
 	
-	int GetPartOfMap(Position p)			//Pls, change bast method name
+	string GetPartOfMap(Position p)			//Pls, change bast method name
 	{
 		return currentMap->at(p.y).at(p.x);
 	}
 
-	void SetPartOfMap(Position p, int change)	//Pls, change the change variable best name
+	void SetPartOfMap(Position p, string change)	//Pls, change the change variable best name
 	{
 		currentMap->at(p.y).at(p.x) = change;
 	}

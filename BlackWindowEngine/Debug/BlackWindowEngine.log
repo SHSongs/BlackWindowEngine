@@ -1,2 +1,3 @@
 ﻿  Main.cpp
+D:\source\BlackWindowEngine\BlackWindowEngine\WorldOutliner.h(40): warning C4715: 'WorldOutliner::FindObject': 모든 제어 경로에서 값을 반환하지는 않습니다.
   BlackWindowEngine.vcxproj -> D:\source\BlackWindowEngine\Debug\BlackWindowEngine.exe
