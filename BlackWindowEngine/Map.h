@@ -6,14 +6,12 @@
 
 using namespace std;
 
-
 class Map
 {
 
 private:
 	int XSIZE;
 	int YSIZE;
-
 public:
 
 	vector<vector<int>>* lastMap;
@@ -78,7 +76,15 @@ public:
 
 	void SetPartOfMap(Position p, int change)	//Pls, change the change variable best name
 	{
-		currentMap->at(p.y).at(p.x) = change;
+		try
+		{
+			currentMap->at(p.y).at(p.x) = change;
+		}
+		catch (exception e)
+		{
+
+		}
+		
 	}
 
 	

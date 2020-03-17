@@ -2,16 +2,14 @@
 #include<iostream>
 #include<vector>
 #include <Windows.h>
-#include<chrono>
 
 #include "Position.h"
 #include "Map.h"
 #include "SceneLifeCycle.h"
-#include "Object.h"
 #include "WorldOutliner.h"
 #include "Time.h"
 #include "BasicScene.h"
-
+#include "Tools.h"
 
 using namespace std;
 
@@ -45,6 +43,7 @@ public:
 
 			scene->map.CopyCurrentMapANDRemoveCurrentMap();
 
+			
 			//strat
 			scene->Render(time.deltaTime);
 			//end
@@ -54,10 +53,10 @@ public:
 			vector<Position> v = scene->map.ModifiedMap();
 			for (auto i : v)
 			{
-				scene->tool.cersorMoveTo({ i.x, i.y });
+				Tools::cersorMoveTo({ i.x, i.y });
 				cout << scene->map.GetPartOfMap({ i.x, i.y });
 			}
-			scene->tool.backCersor();
+			Tools::backCersor();
 
 
 			time.EndMeasure();

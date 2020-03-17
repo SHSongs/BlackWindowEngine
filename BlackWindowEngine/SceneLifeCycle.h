@@ -1,17 +1,10 @@
 #pragma once
-#include<iostream>
-#include<vector>
-#include <Windows.h>
-#include<chrono>
 
 
-#include "Position.h"
+#include "Object.h"
 #include "Map.h"
 #include "SceneLifeCycle.h"
-#include "Object.h"
 #include "WorldOutliner.h"
-#include "Time.h"
-#include "Tools.h"
 
 
 class SceneLifeCycle
@@ -20,12 +13,10 @@ protected:
 public:
 	WorldOutliner worldOutliner;
 	Map map;
-	Tools tool;
 
 	SceneLifeCycle()
 	{
 		worldOutliner = WorldOutliner();
-		tool = Tools();
 		map = Map();
 	};
 	virtual void Create() = 0;			//Called when the Application is first created.
