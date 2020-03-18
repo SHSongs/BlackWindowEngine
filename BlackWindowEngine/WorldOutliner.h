@@ -28,7 +28,7 @@ public:
 		}
 		
 		Tools::cersorMoveTo(Position({ 20, 30 }));
-		cout << "ERROR : Not found" << name << endl;
+		cout << "ERROR : Not found  " << name << endl;
 		Tools::backCersor();
 		return nullptr;
 	}

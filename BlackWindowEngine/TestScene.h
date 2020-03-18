@@ -22,11 +22,14 @@ public:
 
 	void Render(float dt)
 	{
-		dynamic_cast<Canon*>(worldOutliner.FindObject("canon1"))->DoNothing();	
+		dynamic_cast<Canon*>(worldOutliner.FindObject("canon1"))->DoNothing();
+		
 		Object* canon1 = worldOutliner.FindObject("canon1");
 		if (canon1) canon1->Work();
-		Object* nothing = worldOutliner.FindObject("nothing");
-		if (nothing) nothing->Work();
+		
+		worldOutliner.FindObject("nothing")->TryWork();
+		
+		
 	}
 	void Resize(int x, int y)
 	{

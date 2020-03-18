@@ -65,7 +65,12 @@ public:
 		this->position.x += p.x;
 		this->position.y += p.y;
 	}
-
+	void TryWork()
+	{
+		if(this)
+			Work();
+	
+	}
 	virtual void Work() = 0;
 };
 
