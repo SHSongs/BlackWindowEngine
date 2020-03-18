@@ -6,25 +6,27 @@
 
 using namespace std;
 
-class TestScene : public SceneLifeCycle
+class TestScene : public SceneManager
 {
 private:
 public:
 
-	TestScene() : SceneLifeCycle()
+	TestScene() : SceneManager()
 	{
 		mapPointer = new Map(30, 30);
 	};
 	void Create()
 	{
 		worldOutliner.AddObject(new Canon(FPosition({ 0,0 }), "canon1", "¡Û","¡Ü"));
-		
 	}
 
 	void Render(float dt)
 	{
 		dynamic_cast<Canon*>(worldOutliner.FindObject("canon1"))->DoNothing();	
-		worldOutliner.FindObject("canon1")->Work();
+		Object* canon1 = worldOutliner.FindObject("canon1");
+		if (canon1) canon1->Work();
+		Object* nothing = worldOutliner.FindObject("nothing");
+		if (nothing) nothing->Work();
 	}
 	void Resize(int x, int y)
 	{
