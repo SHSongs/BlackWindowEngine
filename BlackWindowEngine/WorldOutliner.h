@@ -19,24 +19,18 @@ public:
 
 	Object* FindObject(string name)
 	{
-		try
+		for (auto& o : objects)
 		{
-			for (auto& o : objects)
+			if (name.compare(o->GetName()) == 0)
 			{
-				if (name.compare(o->GetName()) == 0)
-				{
-					return o;
-				}
+				return o;
 			}
 		}
-		catch(exception e)
-		{
-			Tools::cersorMoveTo(Position({ 20, 30 }));
-			cout << "ERROR : Not found" << name << endl;
-			Tools::backCersor();
-			return nullptr;
-		}
-
+		
+		Tools::cersorMoveTo(Position({ 20, 30 }));
+		cout << "ERROR : Not found" << name << endl;
+		Tools::backCersor();
+		return nullptr;
 	}
 
 	vector<Object*> GetObjects()
