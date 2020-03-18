@@ -24,9 +24,6 @@
     <ClInclude Include="BasicScene.h">
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="EngineLifeCycle.h">
-      <Filter>헤더 파일\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
@@ -34,9 +31,6 @@
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Position.h">
-      <Filter>헤더 파일\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneLifeCycle.h">
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Time.h">
@@ -53,6 +47,12 @@
     </ClInclude>
     <ClInclude Include="Canon.h">
       <Filter>헤더 파일\User</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineManager.h">
+      <Filter>헤더 파일\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

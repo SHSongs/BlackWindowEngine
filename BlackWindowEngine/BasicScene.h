@@ -5,10 +5,10 @@
 
 using namespace std;
 
-class BasicScene : public SceneLifeCycle
+class BasicScene : public SceneManager
 {
 public:
-	BasicScene():SceneLifeCycle()
+	BasicScene():SceneManager()
 	{
 
 	}
