@@ -3,7 +3,7 @@
 
 #include "Object.h"
 #include "Map.h"
-#include "SceneLifeCycle.h"
+#include "SceneManager.h"
 
 #include "Tools.h"
 #include "WorldOutliner.h"

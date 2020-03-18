@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Canon.h"
-#include "SceneLifeCycle.h"
+#include "SceneManager.h"
 
 
 using namespace std;

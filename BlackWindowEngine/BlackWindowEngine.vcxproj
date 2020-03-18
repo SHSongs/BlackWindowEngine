@@ -143,8 +143,8 @@
   <ItemGroup>
     <ClInclude Include="BasicScene.h" />
     <ClInclude Include="Canon.h" />
-    <ClInclude Include="EngineLifeCycle.h" />
-    <ClInclude Include="SceneLifeCycle.h" />
+    <ClInclude Include="EngineManager.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="Time.h" />
