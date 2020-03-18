@@ -12,19 +12,19 @@
 using namespace std;
 
 
-class EngineLifeCycle
+class EngineManager
 {
 private:
 
 	Time time;
-	SceneLifeCycle* scene;
+	SceneManager* scene;
 public:
-	EngineLifeCycle() 
+	EngineManager() 
 	{
-		this->EngineLifeCycle::EngineLifeCycle(new BasicScene());
+		this->EngineManager::EngineManager(new BasicScene());
 		time = Time();
 	}
-	EngineLifeCycle(SceneLifeCycle* scene)
+	EngineManager(SceneManager* scene)
 	{
 		this->scene = scene;
 		start();
@@ -45,14 +45,14 @@ public:
 			scene->mapPointer->CopyCurrentMapANDRemoveCurrentMap();
 
 			
-			//strat
+			//start
 			scene->Render(time.deltaTime);
 			//end
 
-			scene->SceneLifeCycle::UploadMap(scene->worldOutliner.GetObjects());
+			scene->SceneManager::UploadMap(scene->worldOutliner.GetObjects());
 
 			vector<Position> v = scene->mapPointer->ModifiedMap();
-			for (auto i : v)
+			for (Position i : v)
 			{
 				Tools::cersorMoveTo({ i.x, i.y });
 				cout << scene->mapPointer->GetPartOfMap({ i.x, i.y });
