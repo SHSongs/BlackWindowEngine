@@ -49,6 +49,21 @@ public:
 			scene->Render(time.deltaTime);
 			//end
 
+
+			// 충돌검사
+			for(auto my : scene->worldOutliner.GetObjects())
+			{
+				for(auto other : scene->worldOutliner.GetObjects())
+				{
+					if(my != other)
+					{
+						if(PositionTools::IsEqual(my->GetPosition(),other->GetPosition()))
+						{
+							my->CollisionEnter(other);
+						}
+					}
+				}
+			}
 			scene->SceneManager::UploadMap(scene->worldOutliner.GetObjects());
 
 			vector<Position> v = scene->mapPointer->ModifiedMap();

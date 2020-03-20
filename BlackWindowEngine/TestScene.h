@@ -2,7 +2,7 @@
 
 #include "Canon.h"
 #include "SceneManager.h"
-
+#include <optional>
 
 using namespace std;
 
@@ -17,17 +17,17 @@ public:
 	};
 	void Create()
 	{
-		worldOutliner.AddObject(new Canon(FPosition({ 0,0 }), "canon1", "¡Û","¡Ü"));
+		worldOutliner.AddObject(new Canon(FPosition({ 0,0 }), "canon1", "¡Ü","¡Û", 1));
+		worldOutliner.AddObject(new Canon(FPosition({ 5,0 }), "canon2", "¡Ü","¡Û", -1));
 	}
 
 	void Render(float dt)
 	{
-		dynamic_cast<Canon*>(worldOutliner.FindObject("canon1"))->DoNothing();
+	
 		
-		Object* canon1 = worldOutliner.FindObject("canon1");
-		if (canon1) canon1->Work();
-		
-		worldOutliner.FindObject("nothing")->TryWork();
+		worldOutliner.FindObject("canon1")->TryWork();
+		worldOutliner.FindObject("canon2")->TryWork();
+
 		
 		
 	}

@@ -20,4 +20,17 @@ public:
 	{
 		return Position{ (int)(fp.x),(int)(fp.y) };
 	}
+
+	static bool IsEqual(FPosition m, FPosition o)
+	{
+		Position me = FPtoIP(m);
+		Position other = FPtoIP(o);
+
+		if ((me.x == other.x) && (me.y == other.y))
+			return true;
+		else
+			return false;
+		
+	}
+	
 };

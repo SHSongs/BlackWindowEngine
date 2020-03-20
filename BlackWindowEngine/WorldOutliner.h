@@ -17,7 +17,7 @@ public:
 		objects.push_back(o);
 	}
 
-	Object* FindObject(string name)
+	;Object* FindObject(string name)
 	{
 		for (auto& o : objects)
 		{

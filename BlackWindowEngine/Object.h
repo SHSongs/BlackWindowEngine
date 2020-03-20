@@ -69,9 +69,9 @@ public:
 	{
 		if(this)
 			Work();
-	
 	}
-	virtual void Work() = 0;
+	virtual void Work() {}
+	virtual void CollisionEnter(Object* other){}
 };
 
 
