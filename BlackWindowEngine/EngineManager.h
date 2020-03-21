@@ -2,7 +2,7 @@
 #include<iostream>
 #include<vector>
 
-#include "Position.h"
+#include "Unit.h"
 #include "Map.h"
 #include "SceneManager.h"
 #include "Time.h"
@@ -57,10 +57,22 @@ public:
 				{
 					if(my != other)
 					{
-						if(PositionTools::IsEqual(my->GetPosition(),other->GetPosition()))
+						Position myP = PositionTools::FPtoIP(my->GetPosition());
+						Area myA = my->GetArea();
+						Position otherP = PositionTools::FPtoIP(
+							other->GetPosition());
+						Area otherA = other->GetArea();
+
+						if(myP.x + myA.width > otherP.x && myP.x < otherP.x + otherA.width)
 						{
-							my->CollisionEnter(other);
+							if(myP.y + myA.height > otherP.y && myP.y < otherP.y + otherA.height)
+							{
+								my->OnCollision(other);
+							}
 						}
+						/*if(PositionTools::IsEqual(my->GetPosition(),other->GetPosition()))
+						{
+						}*/
 					}
 				}
 			}

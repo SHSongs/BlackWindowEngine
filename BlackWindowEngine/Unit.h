@@ -13,6 +13,11 @@ struct FPosition
 	float y;
 };
 
+struct Area
+{
+	int width;
+	int height;
+};
 class PositionTools
 {
 public:

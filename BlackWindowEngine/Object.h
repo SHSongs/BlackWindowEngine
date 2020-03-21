@@ -3,7 +3,7 @@
 #include<iostream>
 #include<vector>
 
-#include "Position.h"
+#include "Unit.h"
 
 
 using namespace std;
@@ -15,6 +15,9 @@ protected:
 	string name;
 	string shape;
 	FPosition position;
+
+	Area area;
+	
 public:
 	Object()
 	{
@@ -24,11 +27,21 @@ public:
 	{
 		this->Object::Object(p, "object", "бр");
 	}
+	
 	Object(FPosition p, string name, string shape)
+	{
+		this->Object::Object(p, name, shape, Area({ 1, 1 }));
+
+	}
+
+	Object(FPosition p, string name, string shape, Area area)
 	{
 		this->name = name;
 		this->shape = shape;
 		this->position = p;
+		this->area.width = area.width;
+		this->area.height = area.height;
+		
 	}
 
 	string GetName()
@@ -70,8 +83,12 @@ public:
 		if(this)
 			Work();
 	}
+	Area GetArea()
+	{
+		return area;
+	}
 	virtual void Work() {}
-	virtual void CollisionEnter(Object* other){}
+	virtual void OnCollision(Object* other){}
 };
 
 

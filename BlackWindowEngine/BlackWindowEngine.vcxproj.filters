@@ -30,9 +30,6 @@
     <ClInclude Include="Object.h">
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Position.h">
-      <Filter>헤더 파일\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
@@ -52,6 +49,9 @@
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
+      <Filter>헤더 파일\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
   </ItemGroup>

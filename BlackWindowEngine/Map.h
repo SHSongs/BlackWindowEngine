@@ -67,14 +67,20 @@ public:
 	}
 
 	
-	string GetPartOfMap(Position p)			//Pls, change bast method name
+	string GetPartOfMap(Position p)			
 	{
 		return currentMap->at(p.y).at(p.x);
 	}
 
-	void SetPartOfMap(Position p, string change)	//Pls, change the change variable best name
+	void SetPartOfMap(Position p, string change, Area area)	
 	{
-		currentMap->at(p.y).at(p.x) = change;
+		for(int y = p.y; y < area.height + p.y; y++)
+		{
+			for(int x = p.x; x < area.width + p.x; x++)
+			{
+				currentMap->at(y).at(x) = change;
+			}
+		}
 	}
 
 	int GetYSIZE()

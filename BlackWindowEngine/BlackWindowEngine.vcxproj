@@ -152,7 +152,7 @@
     <ClInclude Include="Tools.h" />
     <ClInclude Include="WorldOutliner.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="Position.h" />
+    <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
