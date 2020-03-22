@@ -27,9 +27,9 @@ public:
 	EngineManager(SceneManager* scene)
 	{
 		this->scene = scene;
-		start();
+		Game();
 	}
-	void start()
+	void Game()
 	{
 		scene->Create();
 		scene->mapPointer->Print();
@@ -45,7 +45,7 @@ public:
 			scene->mapPointer->CopyCurrentMapANDRemoveCurrentMap();
 
 			
-			//start
+			//Game
 			scene->Render(time.deltaTime);
 			//end
 
@@ -75,6 +75,12 @@ public:
 						}*/
 					}
 				}
+			}
+
+			//Work
+			for(auto o : scene->worldOutliner.GetObjects())
+			{
+				o->Work();
 			}
 			scene->SceneManager::UploadMap(scene->worldOutliner.GetObjects());
 

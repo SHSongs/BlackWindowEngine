@@ -25,9 +25,7 @@ public:
 	void Render(float dt)
 	{
 	
-		worldOutliner.FindObject("canon1")->TryWork();
-		worldOutliner.FindObject("canon2")->TryWork();
-		worldOutliner.FindObject("canon3")->TryWork();
+		//worldOutliner.FindObject("canon1")->TryWork();
 
 	}
 	void Resize(int x, int y)

@@ -8,6 +8,7 @@ private:
 	bool ch = true;
 	int way = 1;
 public:
+	
 	string shape2;
 	Canon(FPosition p, string name, string shape, string shape2, Area area, int way) : Object(p,name,shape,area)
 	{

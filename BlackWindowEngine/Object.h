@@ -41,7 +41,6 @@ public:
 		this->position = p;
 		this->area.width = area.width;
 		this->area.height = area.height;
-		
 	}
 
 	string GetName()
