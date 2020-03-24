@@ -4,7 +4,7 @@
 #include<vector>
 
 #include "Unit.h"
-
+#include "WorldOutliner.h"
 
 using namespace std;
 
@@ -17,6 +17,8 @@ protected:
 	FPosition position;
 
 	Area area;
+
+	WorldOutliner* P_world_outliner;
 	
 public:
 	Object()
@@ -35,6 +37,20 @@ public:
 	}
 
 	Object(FPosition p, string name, string shape, Area area)
+	{
+		this->name = name;
+		this->shape = shape;
+		this->position = p;
+		this->area.width = area.width;
+		this->area.height = area.height;
+	}
+
+	void InitWordOutliner(WorldOutliner* w)
+	{
+		P_world_outliner = w;
+	}
+	
+	virtual void Start(FPosition p, string name, string shape, Area area)
 	{
 		this->name = name;
 		this->shape = shape;
@@ -88,6 +104,12 @@ public:
 	}
 	virtual void Work() {}
 	virtual void OnCollision(Object* other){}
+
+
+	void Instantiate(Object* o)
+	{
+		P_world_outliner->AddObject(o);
+	}
 };
 
 

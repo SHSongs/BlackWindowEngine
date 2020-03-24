@@ -3,8 +3,11 @@
 #include<vector>
 
 #include "Object.h"
+#include "Tools.h"
 
 using namespace std;
+
+class Object;
 
 class WorldOutliner
 {
@@ -17,9 +20,9 @@ public:
 		objects.push_back(o);
 	}
 
-	;Object* FindObject(string name)
+	/*Object* FindObject(string name)
 	{
-		for (auto& o : objects)
+		for (Object*& o : objects)
 		{
 			if (name.compare(o->GetName()) == 0)
 			{
@@ -31,7 +34,7 @@ public:
 		cout << "ERROR : Not found  " << name << endl;
 		Tools::backCersor();
 		return nullptr;
-	}
+	}*/
 
 	vector<Object*> GetObjects()
 	{

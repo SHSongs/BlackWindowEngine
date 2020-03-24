@@ -51,37 +51,51 @@ public:
 
 
 			// 충돌검사
-			for(auto my : scene->worldOutliner.GetObjects())
+			try
 			{
-				for(auto other : scene->worldOutliner.GetObjects())
+				for (auto my : scene->worldOutliner.GetObjects())
 				{
-					if(my != other)
+					for (auto other : scene->worldOutliner.GetObjects())
 					{
-						Position myP = PositionTools::FPtoIP(my->GetPosition());
-						Area myA = my->GetArea();
-						Position otherP = PositionTools::FPtoIP(
-							other->GetPosition());
-						Area otherA = other->GetArea();
+						if (my != other)
+						{
+							Position myP = PositionTools::FPtoIP(my->GetPosition());
+							Area myA = my->GetArea();
+							Position otherP = PositionTools::FPtoIP(
+								other->GetPosition());
+							Area otherA = other->GetArea();
 
-						if(myP.x + myA.width > otherP.x && myP.x < otherP.x + otherA.width)
-						{
-							if(myP.y + myA.height > otherP.y && myP.y < otherP.y + otherA.height)
+							if (myP.x + myA.width > otherP.x && myP.x < otherP.x + otherA.width)
 							{
-								my->OnCollision(other);
+								if (myP.y + myA.height > otherP.y && myP.y < otherP.y + otherA.height)
+								{
+									my->OnCollision(other);
+								}
 							}
+							/*if(PositionTools::IsEqual(my->GetPosition(),other->GetPosition()))
+							{
+							}*/
 						}
-						/*if(PositionTools::IsEqual(my->GetPosition(),other->GetPosition()))
-						{
-						}*/
 					}
 				}
 			}
-
-			//Work
-			for(auto o : scene->worldOutliner.GetObjects())
+			catch (exception e)
 			{
-				o->Work();
+				
 			}
+			
+			try
+			{	//Work
+				for (auto o : scene->worldOutliner.GetObjects())
+				{
+					o->Work();
+				}
+			}
+			catch (exception e)
+			{
+				
+			}
+		
 			scene->SceneManager::UploadMap(scene->worldOutliner.GetObjects());
 
 			vector<Position> v = scene->mapPointer->ModifiedMap();
