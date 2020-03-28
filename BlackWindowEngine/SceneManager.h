@@ -49,5 +49,8 @@ public:
 			}
 		}
 	}
+	WorldOutliner getWorldOutliner() {
+		return worldOutliner;
+	}
 
 };

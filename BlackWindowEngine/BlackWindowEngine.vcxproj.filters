@@ -54,6 +54,15 @@
     <ClInclude Include="Unit.h">
       <Filter>헤더 파일\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>헤더 파일\User</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>헤더 파일\User</Filter>
+    </ClInclude>
+    <ClInclude Include="PushTrap.h">
+      <Filter>헤더 파일\User</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

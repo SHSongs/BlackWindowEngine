@@ -28,8 +28,8 @@ public:
 	
 	void MapInit()
 	{
-		lastMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "бр"));
-		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "бр"));
+		lastMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "  "));
+		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "  "));
 
 	}
 
@@ -48,7 +48,7 @@ public:
 	{
 		*lastMap = *currentMap;
 		currentMap->clear();
-		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "бр"));
+		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "  "));
 	}
 
 	vector<Position> ModifiedMap()

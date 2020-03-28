@@ -24,7 +24,7 @@ public:
 	void EndMeasure()
 	{
 		elapsed_time += deltaTime;
-		Sleep(1000);				// if delta time -> 0    time goes slowly
+		Sleep(10);				// if delta time -> 0    time goes slowly
 		QueryPerformanceCounter(&end);
 		deltaTime = (end.QuadPart - start.QuadPart) / (float)f.QuadPart;
 	}

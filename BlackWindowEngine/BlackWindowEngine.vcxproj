@@ -145,11 +145,14 @@
     <ClInclude Include="BasicScene.h" />
     <ClInclude Include="Canon.h" />
     <ClInclude Include="EngineManager.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PushTrap.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Tools.h" />
+    <ClInclude Include="Wall.h" />
     <ClInclude Include="WorldOutliner.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Unit.h" />
