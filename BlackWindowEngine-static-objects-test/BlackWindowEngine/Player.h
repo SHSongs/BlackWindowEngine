@@ -109,20 +109,20 @@ string w;
 
 		if (D == "¡è")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y - 1 }, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡è"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y - 1 }, "canon2", "¡ã", "¡â", Area({ 1,1 }), "¡è"));
 		}
 		if (D == "¡é")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y + 1 }, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡é"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y + 1 }, "canon2", "¡å", "¡ä", Area({ 1,1 }), "¡é"));
 		}
 
 		if (D == "¡ç")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x - 1 , GetPosition().y }, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡ç"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x - 1 , GetPosition().y }, "canon2", "¢¸", "¢·", Area({ 1,1 }), "¡ç"));
 		}
 		if (D == "¡æ")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x +1 , GetPosition().y}, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡æ"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x +1 , GetPosition().y}, "canon2", "¢º", "¢¹", Area({ 1,1 }), "¡æ"));
 		}
 	}
 
