@@ -5,7 +5,6 @@
 
 #include "Unit.h"
 
-
 using namespace std;
 
 
@@ -16,7 +15,13 @@ protected:
 	string shape;
 	FPosition position;
 	Area area;
-	string w;
+	string Direction;
+	
+	float Speed = 0.2;
+	FPosition Up = { 0, Speed };
+	FPosition Down = { 0, -Speed };
+	FPosition Left = { -Speed, 0 };
+	FPosition Right = { Speed, 0 };
 	
 public:
 	Object()
@@ -34,9 +39,14 @@ public:
 
 	}
 
-	Object(FPosition p, string name, string shape, string w)
+	Object(FPosition p, string name, string shape, string d)
 	{
-		this->Object::Object(p, name, shape, w);
+		this->name = name;
+		this->shape = shape;
+		this->position = p;
+		this->Direction = d;
+		this->area.width = 1;
+		this->area.height = 1;
 
 	}
 
@@ -77,6 +87,25 @@ public:
 		// if shape size is 1 : add " "
 		this->shape = shape;
 	}
+	string getDirection()
+	{
+		return Direction;
+	}
+	void setDirection(string D)
+	{
+		this->Direction = D;
+	}
+
+	void Push(string Direction) {
+		if (Direction == "ก่")
+			Translate({ 0, -1 });
+		if (Direction == "ก็")
+			Translate({ -1, 0 });
+		if (Direction == "ก้")
+			Translate({ 0, +1 });
+		if (Direction == "กๆ")
+			Translate({ +1, 0 });
+	}
 
 	void Translate(FPosition p)
 	{
@@ -100,6 +129,8 @@ public:
 	}
 	virtual void Work() {}
 	virtual void OnCollision(Object* other){}
+
+
 };
 
 

@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "Tools.h"
 #include "WorldOutliner.h"
+#include "PushTrap.h"
 
 #define BLACK 0 
 #define BLUE 1 
@@ -77,7 +78,10 @@ string w;
 
 			if (pressed_key == 32)
 			{
-				WorldOutliner::AddObject(new Canon(GetPosition(), "canon2", "¡Ü", "¡Û", Area({ 1,1 }), 1));
+				Object* o = WorldOutliner::FindObject("Player");
+
+				Shot(o->GetShape());
+				//WorldOutliner::AddObject(new Canon(GetPosition(), "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡é"));			}
 			}
 
 		}
@@ -86,7 +90,6 @@ string w;
 	void Move(string w, bool ifGo) {
 		this->w = w;
 		if (ifGo == true) {
-			//StrCh(player_x, player_y, "  ");
 			if (w == "¡è")
 				Translate({ 0, -1 }, w);
 			if (w == "¡ç")
@@ -95,44 +98,57 @@ string w;
 				Translate({ 0, +1 }, w);
 			if (w == "¡æ")
 				Translate({ +1, 0 }, w);
-
-			//textcolor(LIGHTBLUE, BLACK);
-			//StrCh(player_x, player_y, w);
-			//textcolor(WHITE, BLACK);
 		}
 		else {
-			//textcolor(LIGHTBLUE, BLACK);
 			Translate({0, 0}, w);
-			
-			//textcolor(WHITE, BLACK);
 		}
 
 	}
 
-	void textcolor(int foreground, int background)
-	{
-		int color = foreground + background * 16;
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+	void Shot(string D) {
 
-	}
-	void gotoxy(int x, int y) {
-		COORD posXY = { x,y };
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), posXY);
+		if (D == "¡è")
+		{
+			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y - 1 }, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡è"));
+		}
+		if (D == "¡é")
+		{
+			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y + 1 }, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡é"));
+		}
+
+		if (D == "¡ç")
+		{
+			WorldOutliner::AddObject(new Canon({ GetPosition().x - 1 , GetPosition().y }, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡ç"));
+		}
+		if (D == "¡æ")
+		{
+			WorldOutliner::AddObject(new Canon({ GetPosition().x +1 , GetPosition().y}, "canon2", "¡Ü", "¡Û", Area({ 1,1 }), "¡æ"));
+		}
 	}
 
 	virtual void OnCollision(Object* other)
 	{
-		Object* o = WorldOutliner::FindObject("canon1");
-		o->SetShape("ac");
+		/*Object* o = WorldOutliner::FindObject("canon1");
+		o->SetShape("ac");*/
 		
-		if (w == "¡è")
-			Translate({ 0, +1 }, w);
-		if (w == "¡ç")
-			Translate({ +1, 0 }, w);
-		if (w == "¡é")
-			Translate({ 0, -1 }, w);
-		if (w == "¡æ")
-			Translate({ -1, 0 }, w);
+		
+		/*if (dynamic_cast<Canon*>(other))
+			other->SetShape("ac");*/
+
+		if (dynamic_cast<PushTrap*>(other))
+			//Move(w, true);
+			;
+
+		else{
+			if (w == "¡è")
+				Translate({ 0, +1 }, w);
+			if (w == "¡ç")
+				Translate({ +1, 0 }, w);
+			if (w == "¡é")
+				Translate({ 0, -1 }, w);
+			if (w == "¡æ")
+				Translate({ -1, 0 }, w);
+		}
 	}
 	string getW() {
 		return w;

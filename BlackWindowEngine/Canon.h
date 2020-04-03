@@ -1,30 +1,55 @@
 #pragma once
 
+#include "WorldOutliner.h"
 #include "Object.h"
-
+#include "MovingTrap.h"
 class Canon : public Object
 {
 private:
 	bool ch = true;
-	int way = 1;
+	string Direction;
+	float speed = 0.05;
 public:
 	
 	string shape2;
-	Canon(FPosition p, string name, string shape, string shape2, Area area, int way) : Object(p,name,shape,area)
+	Canon(FPosition p, string name, string shape, string shape2, Area area, string Direction) : Object(p,name,shape,area)
 	{
 		this->shape2 = shape2;
-		this->way = way;
+		this->Direction = Direction;
 	}
 
 	virtual void Work()
 	{
-		Translate(FPosition({ 0,(float)(0.05 * way) }));
+		Move(Direction);
 		SwapShape();
+	}
+	void Move(string D)
+	{
+		if (D == "¡è")
+		{
+			Translate(FPosition({ 0,(float)(-speed) }));
+		}
+		else if (D == "¡é")
+		{ 
+			Translate(FPosition({ 0,(float)(speed) }));
+		}
+		else if (D == "¡ç")
+		{
+			Translate(FPosition({ (float)(-speed), 0 }));
+		}
+		else if (D == "¡æ")
+		{
+			Translate(FPosition({ (float)(+speed), 0 }));
+		}
+		else if (D == "¡Ü")
+		{
+			Translate(FPosition({ 0, 0 }));
+		}
 	}
 	void SwapShape()
 	{
 		string tmp = shape;
-		shape = shape2;
+		shape = shape2; 
 		shape2 = tmp;
 	}
 	void DoNothing()
@@ -34,6 +59,13 @@ public:
 	virtual void OnCollision(Object* other)
 	{
 		shape2 = shape;
+
+		WorldOutliner::Destroy(this);
+
+		if(dynamic_cast<MovingTrap*>(other))
+		{
+			WorldOutliner::Destroy(this);
+		}
 	}
 	
 };
