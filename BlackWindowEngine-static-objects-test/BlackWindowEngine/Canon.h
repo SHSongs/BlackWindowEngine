@@ -1,17 +1,18 @@
 #pragma once
 
+#include "WorldOutliner.h"
 #include "Object.h"
-
+#include "MovingTrap.h"
 class Canon : public Object
 {
 private:
 	bool ch = true;
 	string Direction;
-	float speed = 0.05;
+	float speed = 0.7;
 public:
 	
 	string shape2;
-	Canon(FPosition p, string name, string shape, string shape2, Area area, string Direction) : Object(p,name,shape,area)
+	Canon(FPosition p, string name, string shape, string shape2, Area area, string Direction, string Type) : Object(p,name,shape,area, Type)
 	{
 		this->shape2 = shape2;
 		this->Direction = Direction;
@@ -57,7 +58,14 @@ public:
 	}
 	virtual void OnCollision(Object* other)
 	{
-		shape2 = shape;
+		//shape2 = shape;
+
+		WorldOutliner::Destroy(this);
+
+		if(dynamic_cast<MovingTrap*>(other))
+		{
+			WorldOutliner::Destroy(other);
+		}
 	}
 	
 };

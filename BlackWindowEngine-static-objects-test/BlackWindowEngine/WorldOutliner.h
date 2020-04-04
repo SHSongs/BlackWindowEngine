@@ -2,7 +2,8 @@
 #include<iostream>
 #include<vector>
 
-#include "Object.h"
+#include "Tools.h"
+
 
 using namespace std;
 
@@ -33,7 +34,24 @@ public:
 		Tools::backCersor();
 		return nullptr;
 	}
-	
+
+	static void Destroy(Object *object)
+	{
+		auto iter = objects.begin();
+		
+		for(iter; iter != objects.end();)
+		{
+			if(*iter == object)
+			{
+				iter = objects.erase(iter);
+				return;
+			}
+			else
+			{
+				iter++;
+			}
+		}
+	}
 	vector<Object*> GetObjects()
 	{
 		return objects;

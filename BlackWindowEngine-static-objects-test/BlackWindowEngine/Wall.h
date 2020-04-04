@@ -12,11 +12,11 @@ public:
 	}
 	Wall(string name) {
 	}
-	Wall(FPosition p, string name, string shape)
+	Wall(FPosition p, string name, string shape, string Type) : Object(p, name, shape, Type)
 	{
 		
 	}
-	Wall(FPosition p, string name, string shape, Area area) : Object(p, name, shape, area)
+	Wall(FPosition p, string name, string shape, Area area, string Type) : Object(p, name, shape, area, Type)
 	{
 
 	}

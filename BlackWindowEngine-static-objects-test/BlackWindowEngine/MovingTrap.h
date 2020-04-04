@@ -12,7 +12,7 @@ public:
 	{
 
 	}
-	MovingTrap(FPosition Position, string Name, string Shape, string Direction) : Object(Position, Name, Shape, Direction)
+	MovingTrap(FPosition Position, string Name, string Shape, string Direction, string Type) : Object(Position, Name, Shape, Direction, Type)
 	{
 		ID = Name;
 		this->Direction = Direction;
@@ -47,35 +47,35 @@ public:
 
 	void OnCollision(Object* other)
 	{
-	//	Object* o = WorldOutliner::FindObject(ID);
-		if (Direction == "ก่") {
-			Direction = "ก้";
+		Object* o = WorldOutliner::FindObject(ID);
+		if (o->getDirection() == "ก่") {
+			o->setDirection("ก้");
 		}
-		else if (Direction == "ก้") {
-			Direction = "ก่";
+		else if (o->getDirection() == "ก้") {
+			o->setDirection("ก่");
 		}
 
-		if (Direction == "ก็") {
-			Direction ="กๆ";
+		if (o->getDirection() == "ก็") {
+			o->setDirection("กๆ");
 		}
-		else if (Direction == "กๆ") {
-			Direction = "ก็";
+		else if (o->getDirection()== "กๆ") {
+			o->setDirection("ก็");
 		}
 	}
 	void Move()
 	{
-	//	Object* o = WorldOutliner::FindObject(ID);
-		if (Direction == "ก่") {
+		Object* o = WorldOutliner::FindObject(ID);
+		if (o->getDirection() == "ก่") {
 			Translate(Up);
 		}
-		else if (Direction == "ก้") {
+		else if (o->getDirection() == "ก้") {
 			Translate(Down);
 		}
 
-		if (Direction == "ก็") {
+		if (o->getDirection() == "ก็") {
 			Translate(Left);
 		}
-		else if (Direction == "กๆ") {
+		else if (o->getDirection() == "กๆ") {
 			Translate(Right);
 		}
 	}

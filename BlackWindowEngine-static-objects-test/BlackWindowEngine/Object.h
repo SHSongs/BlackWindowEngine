@@ -5,7 +5,6 @@
 
 #include "Unit.h"
 
-
 using namespace std;
 
 
@@ -14,6 +13,7 @@ class Object
 protected:
 	string name;
 	string shape;
+	string Type;
 	FPosition position;
 	Area area;
 	string Direction;
@@ -31,33 +31,34 @@ public:
 	}
 	Object(FPosition p)
 	{
-		this->Object::Object(p, "object", "бр");
+		this->Object::Object(p, "object", "бр", "Unknown");
 	}
 	
-	Object(FPosition p, string name, string shape)
+	Object(FPosition p, string name, string shape, string Type)
 	{
-		this->Object::Object(p, name, shape, Area({ 1, 1 }));
+		this->Object::Object(p, name, shape, Area({ 1, 1 }),Type);
 
 	}
 
-	Object(FPosition p, string name, string shape, string d)
+	Object(FPosition p, string name, string shape, Area area, string Type)
+	{
+		this->Object::Object(p, name, shape, area, "", Type);
+	}
+
+	Object(FPosition p, string name, string shape, string direction, string Type)
+	{
+		this->Object::Object(p, name, shape, Area{ 1,1 }, direction, Type);
+	}
+
+	Object(FPosition p, string name, string shape, Area Area, string direction, string Type)
 	{
 		this->name = name;
 		this->shape = shape;
 		this->position = p;
-		this->Direction = d;
-		this->area.width = 1;
-		this->area.height = 1;
-
-	}
-
-	Object(FPosition p, string name, string shape, Area area)
-	{
-		this->name = name;
-		this->shape = shape;
-		this->position = p;
-		this->area.width = area.width;
-		this->area.height = area.height;
+		this->Direction = direction;
+		this->area.width = Area.width;
+		this->area.height = Area.height;
+		this->Type = Type;
 	}
 
 
@@ -96,6 +97,14 @@ public:
 	{
 		this->Direction = D;
 	}
+	string getType()
+	{
+		return Type;
+	}
+	void setType(string t)
+	{
+		this->Type = t;
+	}
 
 	void Push(string Direction) {
 		if (Direction == "бш")
@@ -130,6 +139,8 @@ public:
 	}
 	virtual void Work() {}
 	virtual void OnCollision(Object* other){}
+
+
 };
 
 

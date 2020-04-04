@@ -18,11 +18,11 @@ public:
 	PushTrap(string name) {
 		ID = name;
 	}
-	PushTrap(FPosition p, string name, string shape) : Object(p, name, shape)
+	PushTrap(FPosition p, string name, string shape, string Type) : Object(p, name, shape, Type)
 	{
 		ID = name;
 	}
-	PushTrap(FPosition p, string name, string shape, Area area) : Object(p, name, shape, area)
+	PushTrap(FPosition p, string name, string shape, Area area, string Type) : Object(p, name, shape, area, Type)
 	{
 		ID = name;
 	}
@@ -45,7 +45,7 @@ public:
 		//Direction = o->GetShape();
 		Object* Pushtrap = WorldOutliner::FindObject(ID);
 
-		if (other->GetName() == "Player") {
+		if (other->getType() == "Player") {
 			Direction = o->GetShape();
 
 			if (Direction == "ก่") {
@@ -65,7 +65,8 @@ public:
 				back = Direction;
 			}
 		}
-		else {
+		else if (other->getType()=="Wall") 
+		{
 			FPosition object_Position = o->GetPosition();
 			FPosition Pushtrap_Position = Pushtrap->GetPosition();
 			Direction = o->GetShape();	

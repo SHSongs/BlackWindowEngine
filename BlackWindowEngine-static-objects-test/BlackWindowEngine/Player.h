@@ -32,7 +32,7 @@ string w;
 	Player() {
 
 	}
-	Player(FPosition p, string name, string shape) : Object(p, name, shape)
+	Player(FPosition p, string name, string shape, string Type) : Object(p, name, shape, Type)
 	{
 
 	}
@@ -109,20 +109,20 @@ string w;
 
 		if (D == "¡è")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y - 1 }, "canon2", "¡ã", "¡â", Area({ 1,1 }), "¡è"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y - 1 }, "canon2", "¡ã", "¡â", Area({ 1,1 }), "¡è", "Canon"));
 		}
 		if (D == "¡é")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y + 1 }, "canon2", "¡å", "¡ä", Area({ 1,1 }), "¡é"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x , GetPosition().y + 1 }, "canon2", "¡å", "¡ä", Area({ 1,1 }), "¡é", "Canon"));
 		}
 
 		if (D == "¡ç")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x - 1 , GetPosition().y }, "canon2", "¢¸", "¢·", Area({ 1,1 }), "¡ç"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x - 1 , GetPosition().y }, "canon2", "¢¸", "¢·", Area({ 1,1 }), "¡ç", "Canon"));
 		}
 		if (D == "¡æ")
 		{
-			WorldOutliner::AddObject(new Canon({ GetPosition().x +1 , GetPosition().y}, "canon2", "¢º", "¢¹", Area({ 1,1 }), "¡æ"));
+			WorldOutliner::AddObject(new Canon({ GetPosition().x +1 , GetPosition().y}, "canon2", "¢º", "¢¹", Area({ 1,1 }), "¡æ", "Canon"));
 		}
 	}
 
@@ -135,19 +135,29 @@ string w;
 		/*if (dynamic_cast<Canon*>(other))
 			other->SetShape("ac");*/
 
-		if (dynamic_cast<PushTrap*>(other))
+		//if (dynamic_cast<PushTrap*>(other))
 			//Move(w, true);
-			;
-
-		else{
+		if (other->getType() == "Wall")
+		{
 			if (w == "¡è")
 				Translate({ 0, +1 }, w);
-			if (w == "¡ç")
+			else if (w == "¡ç")
 				Translate({ +1, 0 }, w);
-			if (w == "¡é")
+			else if (w == "¡é")
 				Translate({ 0, -1 }, w);
-			if (w == "¡æ")
+			else if (w == "¡æ")
 				Translate({ -1, 0 }, w);
+		}
+		else {
+			string D = other->getDirection();
+			if (D == "¡è")
+				Translate({ 0, -1 }, D);
+			else if (D == "¡ç")
+				Translate({ -1, 0 }, D);
+			else if (D == "¡é")
+				Translate({ 0, +1 }, D);
+			else if (D == "¡æ")
+				Translate({ +1, 0 }, D);
 		}
 	}
 	string getW() {
