@@ -8,32 +8,17 @@ using namespace std;
 class BasicScene : public SceneManager
 {
 public:
-	BasicScene():SceneManager()
-	{
+	BasicScene();
 
-	}
-	void Create()
-	{
+	void Create();
 
-	}
-	void Render(float dt)
-	{
+	void Render(float dt);
 
-	}
-	void Resize(int x, int y)
-	{
+	void Resize(int x, int y);
 
-	}
-	void Input(float dt)
-	{
+	void Input(float dt);
 
-	}
-	void Pause()
-	{
+	void Pause();
 
-	}
-	~BasicScene()
-	{
-
-	}
+	~BasicScene();
 };

@@ -139,15 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicScene.cpp" />
     <ClCompile Include="Canon.cpp" />
     <ClCompile Include="EngineManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="MovingTrap.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PushTrap.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="Tools.cpp" />
+    <ClCompile Include="Unit.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="WorldOutliner.cpp" />
   </ItemGroup>
