@@ -10,86 +10,22 @@ class PushTrap : public Object {
 private:
 
 public:
-	string Direction;
-	string ID;
-	PushTrap() {
+	std::string Direction;
+	std::string ID;
+	PushTrap();
 
-	}
-	PushTrap(string name) {
-		ID = name;
-	}
-	PushTrap(FPosition p, string name, string shape) : Object(p, name, shape)
-	{
-		ID = name;
-	}
-	PushTrap(FPosition p, string name, string shape, Area area) : Object(p, name, shape, area)
-	{
-		ID = name;
-	}
-	void Create()
-	{
-		
-	}
+	PushTrap(std::string name);
+
+	PushTrap(FPosition p, std::string name, std::string shape, std::string Type);
+
+	PushTrap(FPosition p, std::string name, std::string shape, Area area, std::string Type);
+
+	void Create();
 
 	void Work() // 랜더 안에서 돌아가는 Work
-	{
-		
-	}
+	;
 
-	void OnCollision(Object* other)
-	{
-		string Direction;
-		static string back;
+	void OnCollision(Object* other);
 
-		Object* o = WorldOutliner::FindObject("Player");
-		//Direction = o->GetShape();
-		Object* Pushtrap = WorldOutliner::FindObject(ID);
-
-		if (other->GetName() == "Player") {
-			Direction = o->GetShape();
-
-			if (Direction == "↑") {
-				Translate({ 0, -1 });
-				back = Direction;
-			}
-			if (Direction == "←") {
-				Translate({ -1, 0 });
-				back = Direction;
-			}
-			if (Direction == "↓") {
-				Translate({ 0, +1 });
-				back = Direction;
-			}
-			if (Direction == "→") {
-				Translate({ +1, 0 });
-				back = Direction;
-			}
-		}
-		else {
-			FPosition object_Position = o->GetPosition();
-			FPosition Pushtrap_Position = Pushtrap->GetPosition();
-			Direction = o->GetShape();	
-			if (back == "↑") {
-				Translate({ 0, +1 });
-				o->Translate({ 0, +1 });
-			}
-			if (back == "←") {
-				Translate({ +1, 0 });
-				o->Translate({ +1, 0 });
-			}
-			if (back == "↓") {
-				Translate({ 0, -1 });
-				o->Translate({ 0, -1 });
-			}
-			if (back == "→") {
-				Translate({ -1, 0 });
-				o->Translate({ -1, 0 });
-			}
-		}
-
-	}
-	void Push(string w)
-	{
-
-	}
+	void Push(std::string w);
 };

@@ -7,65 +7,21 @@ class Canon : public Object
 {
 private:
 	bool ch = true;
-	string Direction;
-	float speed = 0.05;
+	std::string Direction;
+	float speed = 0.7;
 public:
 	
-	string shape2;
-	Canon(FPosition p, string name, string shape, string shape2, Area area, string Direction) : Object(p,name,shape,area)
-	{
-		this->shape2 = shape2;
-		this->Direction = Direction;
-	}
+	std::string shape2;
+	Canon(FPosition p, std::string name, std::string shape, std::string shape2, Area area, std::string Direction,
+	      std::string Type);
 
-	virtual void Work()
-	{
-		Move(Direction);
-		SwapShape();
-	}
-	void Move(string D)
-	{
-		if (D == "¡è")
-		{
-			Translate(FPosition({ 0,(float)(-speed) }));
-		}
-		else if (D == "¡é")
-		{ 
-			Translate(FPosition({ 0,(float)(speed) }));
-		}
-		else if (D == "¡ç")
-		{
-			Translate(FPosition({ (float)(-speed), 0 }));
-		}
-		else if (D == "¡æ")
-		{
-			Translate(FPosition({ (float)(+speed), 0 }));
-		}
-		else if (D == "¡Ü")
-		{
-			Translate(FPosition({ 0, 0 }));
-		}
-	}
-	void SwapShape()
-	{
-		string tmp = shape;
-		shape = shape2; 
-		shape2 = tmp;
-	}
-	void DoNothing()
-	{
-		
-	}
-	virtual void OnCollision(Object* other)
-	{
-		shape2 = shape;
+	virtual void Work();
 
-		WorldOutliner::Destroy(this);
+	void Move(std::string D);
 
-		if(dynamic_cast<MovingTrap*>(other))
-		{
-			WorldOutliner::Destroy(this);
-		}
-	}
-	
+	void SwapShape();
+
+	void DoNothing();
+
+	virtual void OnCollision(Object* other);
 };

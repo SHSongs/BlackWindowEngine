@@ -1,21 +1,18 @@
 #pragma once
 
 #include<iostream>
-#include<vector>
 
 #include "Unit.h"
-
-using namespace std;
-
 
 class Object
 {
 protected:
-	string name;
-	string shape;
+	std::string name;
+	std::string shape;
+	std::string Type;
 	FPosition position;
 	Area area;
-	string Direction;
+	std::string Direction;
 	
 	float Speed = 0.2;
 	FPosition Up = { 0, Speed };
@@ -24,124 +21,48 @@ protected:
 	FPosition Right = { Speed, 0 };
 	
 public:
-	Object()
-	{
-		this->Object::Object({ 0,0 });
-	}
-	Object(FPosition p)
-	{
-		this->Object::Object(p, "object", "¡à");
-	}
-	
-	Object(FPosition p, string name, string shape)
-	{
-		this->Object::Object(p, name, shape, Area({ 1, 1 }));
+	Object();
 
-	}
+	Object(FPosition p);
 
-	Object(FPosition p, string name, string shape, string d)
-	{
-		this->name = name;
-		this->shape = shape;
-		this->position = p;
-		this->Direction = d;
-		this->area.width = 1;
-		this->area.height = 1;
+	Object(FPosition p, std::string name, std::string shape, std::string Type);
 
-	}
+	Object(FPosition p, std::string name, std::string shape, Area area, std::string Type);
 
-	Object(FPosition p, string name, string shape, Area area)
-	{
-		this->name = name;
-		this->shape = shape;
-		this->position = p;
-		this->area.width = area.width;
-		this->area.height = area.height;
-	}
+	Object(FPosition p, std::string name, std::string shape, std::string direction, std::string Type);
+
+	Object(FPosition p, std::string name, std::string shape, Area Area, std::string direction, std::string Type);
 
 
-	string GetName()
-	{
-		return name;
-	}
-	void SetName(string name)
-	{
-		this->name = name;
-	}
+	std::string GetName();
 
-	FPosition GetPosition()
-	{
-		return position;
-	}
-	void SetPosition(FPosition p)
-	{
-		position = p;
-	}
+	void SetName(std::string name);
 
-	string GetShape()
-	{
-		return shape;
-	}
-	void SetShape(string shape)
-	{
-		// if shape size is 1 : add " "
-		this->shape = shape;
-	}
-	string getDirection()
-	{
-		return Direction;
-	}
-	void setDirection(string D)
-	{
-		this->Direction = D;
-	}
+	FPosition GetPosition();
 
-	void Push(string Direction) {
-		if (Direction == "¡è")
-			Translate({ 0, -1 });
-		if (Direction == "¡ç")
-			Translate({ -1, 0 });
-		if (Direction == "¡é")
-			Translate({ 0, +1 });
-		if (Direction == "¡æ")
-			Translate({ +1, 0 });
-	}
+	void SetPosition(FPosition p);
 
-	void Translate(FPosition p)
-	{
-		this->position.x += p.x;
-		this->position.y += p.y;
-	}
-	void Translate(FPosition p, string shape)
-	{
-		this->position.x += p.x;
-		this->position.y += p.y;
-		this->shape = shape;
-	}
-	void TryWork()
-	{
-		if(this)
-			Work();
-	}
-	Area GetArea()
-	{
-		return area;
-	}
-	virtual void Work() {}
-	virtual void OnCollision(Object* other){}
+	std::string GetShape();
 
+	void SetShape(std::string shape);
 
-};
+	std::string getDirection();
 
+	void setDirection(std::string D);
 
-class ObjectList
-{
-public:
-	vector<Object> list;
-	string name;
+	std::string getType();
 
-	ObjectList(string name)
-	{
+	void setType(std::string t);
 
-	}
+	void Push(std::string Direction);
+
+	void Translate(FPosition p);
+
+	void Translate(FPosition p, std::string shape);
+
+	void TryWork();
+
+	Area GetArea();
+	virtual void Work();
+	virtual void OnCollision(Object* other);
 };
