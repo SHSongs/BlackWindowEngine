@@ -2,11 +2,11 @@
 
 #include "Canon.h"
 #include "SceneManager.h"
+#include <optional>
 #include "Player.h"
 #include "Wall.h"
 #include "PushTrap.h"
 #include "MovingTrap.h"
-
 
 class TestScene : public SceneManager
 {
@@ -73,7 +73,7 @@ public:
 		worldOutliner.AddObject(new Wall(FPosition({ (float) Size-1, 0 }), "Wall_Right", "бс", Area({ 1, Size }), "Wall"));
 		worldOutliner.AddObject(new Wall(FPosition({ 0, (float) Size-1 }), "Wall_Bottom", "бс", Area({ Size, 1 }), "Wall"));
 	}
-	string getW()
+	std::string getW()
 	{
 		worldOutliner.FindObject("Player")->GetShape();
 	}

@@ -86,7 +86,7 @@ public:
 		}
 
 	}
-	void Move(string w, bool ifGo) {
+	void Move(std::string w, bool ifGo) {
 		this->w = w;
 		if (ifGo == true) {
 			if (w == "ก่")
@@ -104,7 +104,7 @@ public:
 
 	}
 
-	void Shot(string D) {
+	void Shot(std::string D) {
 
 		if (D == "ก่")
 		{
@@ -148,7 +148,7 @@ public:
 				Translate({ -1, 0 }, w);
 		}
 		else {
-			string D = other->getDirection();
+			std::string D = other->getDirection();
 			if (D == "ก่")
 				Translate({ 0, -1 }, D);
 			else if (D == "ก็")
@@ -159,7 +159,8 @@ public:
 				Translate({ +1, 0 }, D);
 		}
 	}
-	string getW() {
+
+	std::string getW() {
 		return w;
 	}
 };

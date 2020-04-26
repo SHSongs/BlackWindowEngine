@@ -146,7 +146,9 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Tools.cpp" />
+    <ClCompile Include="Wall.cpp" />
     <ClCompile Include="WorldOutliner.cpp" />
   </ItemGroup>
   <ItemGroup>

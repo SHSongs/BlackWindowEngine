@@ -15,14 +15,14 @@ public:
 	PushTrap() {
 
 	}
-	PushTrap(string name) {
+	PushTrap(std::string name) {
 		ID = name;
 	}
 	PushTrap(FPosition p, std::string name, std::string shape, std::string Type) : Object(p, name, shape, Type)
 	{
 		ID = name;
 	}
-	PushTrap(FPosition p, string name, string shape, Area area, string Type) : Object(p, name, shape, area, Type)
+	PushTrap(FPosition p, std::string name, std::string shape, Area area, std::string Type) : Object(p, name, shape, area, Type)
 	{
 		ID = name;
 	}
@@ -38,8 +38,8 @@ public:
 
 	void OnCollision(Object* other)
 	{
-		string Direction;
-		static string back;
+		std::string Direction;
+		static std::string back;
 
 		Object* o = WorldOutliner::FindObject("Player");
 		//Direction = o->GetShape();
