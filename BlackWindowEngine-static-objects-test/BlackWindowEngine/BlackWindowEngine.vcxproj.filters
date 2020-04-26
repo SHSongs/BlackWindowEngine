@@ -19,6 +19,12 @@
     <Filter Include="헤더 파일\User">
       <UniqueIdentifier>{24b418a5-5784-4dd1-bd81-5c4df639c0ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Engine">
+      <UniqueIdentifier>{0133598f-7504-4e77-95f8-cbb3c899a3a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\User">
+      <UniqueIdentifier>{1bbc7a20-d601-4adf-8118-dba59d3c2485}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicScene.h">
@@ -70,6 +76,30 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldOutliner.cpp">
+      <Filter>소스 파일\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>소스 파일\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>소스 파일\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineManager.cpp">
+      <Filter>소스 파일\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Canon.cpp">
+      <Filter>소스 파일\User</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingTrap.cpp">
+      <Filter>소스 파일\User</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\User</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

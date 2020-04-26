@@ -1,4 +1,4 @@
-	#pragma once
+#pragma once
 
 
 #include "Object.h"
@@ -21,11 +21,11 @@ public:
 		worldOutliner = WorldOutliner();
 	};
 	
-	virtual void Create() = 0;			//Called when the Application is first created.
-	virtual void Render(float dt) = 0;
-	virtual void Resize(int x, int y) = 0;
-	virtual void Input(float dt) = 0;
-	virtual void Pause() = 0;			//Stop Game
+	virtual void Create(){};			//Called when the Application is first created.
+	virtual void Render(float dt){};
+	virtual void Resize(int x, int y){};
+	virtual void Input(float dt){};
+	virtual void Pause() {};			//Stop Game
 	virtual ~SceneManager() {};				//Called when this Game should release all resources.
 
 	void UploadMap(Object* o)
@@ -33,7 +33,7 @@ public:
 		mapPointer->SetPartOfMap(PositionTools::FPtoIP(o->GetPosition()), o->GetShape(), o->GetArea());
 	}
 
-	void UploadMap(vector<Object*> obs)
+	void UploadMap(std::vector<Object*> obs)
 	{
 		for (auto o : obs)
 		{
@@ -41,10 +41,10 @@ public:
 			{
 				mapPointer->SetPartOfMap(PositionTools::FPtoIP(o->GetPosition()), o->GetShape(), o->GetArea());
 			}
-			catch (exception e)
+			catch (std::exception e)
 			{
 				Tools::cersorMoveTo(Position({ 0, mapPointer->GetYSIZE() + 2 }));
-				cout << "ERROR : out of Map" << endl;
+				std::cout << "ERROR : out of Map" << std::endl;
 				Tools::backCersor();
 			}
 		}
@@ -53,4 +53,8 @@ public:
 		return worldOutliner;
 	}
 
+	void SceneChange(SceneManager scene)
+	{
+		
+	}
 };

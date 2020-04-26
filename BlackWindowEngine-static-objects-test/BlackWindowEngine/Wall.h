@@ -6,17 +6,20 @@ class Wall : public Object {
 private:
 
 public:
+	
 	//WorldOutliner worldOutliner;
-	Wall() {
+	Wall()
+	{
 
 	}
-	Wall(string name) {
+	Wall(FPosition p, std::string name, Area area) : Object(p, name, "бс",area, "Wall")
+	{
 	}
-	Wall(FPosition p, string name, string shape, string Type) : Object(p, name, shape, Type)
+	Wall(FPosition p, std::string name, std::string shape, std::string Type) : Object(p, name, shape, Type)
 	{
 		
 	}
-	Wall(FPosition p, string name, string shape, Area area, string Type) : Object(p, name, shape, area, Type)
+	Wall(FPosition p, std::string name, std::string shape, Area area, std::string Type) : Object(p, name, shape, area, Type)
 	{
 
 	}
@@ -27,11 +30,10 @@ public:
 	}
 
 	void Make() {
-		//SceneManager.worldOutliner.AddObject(new Wall(FPosition({ 5,5 }), "Wall_10,10", "д▒"));
 	}
 	void OnCollision(Object* other)
 	{
-		;
+		
 	}
 	
 	

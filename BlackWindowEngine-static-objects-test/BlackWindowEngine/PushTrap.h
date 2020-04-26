@@ -10,15 +10,15 @@ class PushTrap : public Object {
 private:
 
 public:
-	string Direction;
-	string ID;
+	std::string Direction;
+	std::string ID;
 	PushTrap() {
 
 	}
 	PushTrap(string name) {
 		ID = name;
 	}
-	PushTrap(FPosition p, string name, string shape, string Type) : Object(p, name, shape, Type)
+	PushTrap(FPosition p, std::string name, std::string shape, std::string Type) : Object(p, name, shape, Type)
 	{
 		ID = name;
 	}
@@ -89,7 +89,7 @@ public:
 		}
 
 	}
-	void Push(string w)
+	void Push(std::string w)
 	{
 
 	}

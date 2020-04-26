@@ -2,7 +2,6 @@
 
 #include<iostream>
 #include<vector>
-using namespace std;
 
 class Map
 {
@@ -12,8 +11,8 @@ private:
 	int YSIZE;
 public:
 
-	vector<vector<string>>* lastMap;
-	vector<vector<string>>* currentMap;
+	std::vector<std::vector<std::string>>* lastMap;
+	std::vector<std::vector<std::string>>* currentMap;
 
 	Map()
 	{
@@ -28,8 +27,8 @@ public:
 	
 	void MapInit()
 	{
-		lastMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "  "));
-		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "  "));
+		lastMap = new std::vector<std::vector<std::string>>(YSIZE, std::vector<std::string>(XSIZE, "  "));
+		currentMap = new std::vector<std::vector<std::string>>(YSIZE, std::vector<std::string>(XSIZE, "  "));
 
 	}
 
@@ -39,21 +38,21 @@ public:
 		{
 			for (auto x : y)
 			{
-				cout << x;
+				std::cout << x;
 			}
-			cout << "\n";
+			std::cout << "\n";
 		}
 	}
 	void CopyCurrentMapANDRemoveCurrentMap()
 	{
 		*lastMap = *currentMap;
 		currentMap->clear();
-		currentMap = new vector<vector<string>>(YSIZE, vector<string>(XSIZE, "  "));
+		currentMap = new std::vector<std::vector<std::string>>(YSIZE, std::vector<std::string>(XSIZE, "  "));
 	}
 
-	vector<Position> ModifiedMap()
+	std::vector<Position> ModifiedMap()
 	{
-		vector<Position> positions;
+		std::vector<Position> positions;
 		for (int y = 0; y < YSIZE; y++)		//¹Ù²Ù±â
 		{
 			for (int x = 0; x < XSIZE; x++)
@@ -66,13 +65,13 @@ public:
 		return positions;
 	}
 
-	
-	string GetPartOfMap(Position p)			
+
+	std::string GetPartOfMap(Position p)			
 	{
 		return currentMap->at(p.y).at(p.x);
 	}
 
-	void SetPartOfMap(Position p, string change, Area area)	
+	void SetPartOfMap(Position p, std::string change, Area area)	
 	{
 		for(int y = p.y; y < area.height + p.y; y++)
 		{

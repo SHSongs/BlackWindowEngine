@@ -1,8 +1,7 @@
 #pragma once
+#include "Canon.h"
 #include "conio.h"
-#include "windows.h"
 #include "Object.h"
-#include "Tools.h"
 #include "WorldOutliner.h"
 #include "PushTrap.h"
 
@@ -28,11 +27,11 @@ class Player : public Object {
 private:
 
 public:
-string w;
+	std::string w;
 	Player() {
 
 	}
-	Player(FPosition p, string name, string shape, string Type) : Object(p, name, shape, Type)
+	Player(FPosition p, std::string name, std::string shape, std::string Type) : Object(p, name, shape, Type)
 	{
 
 	}

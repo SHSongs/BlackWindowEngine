@@ -7,12 +7,13 @@ class Canon : public Object
 {
 private:
 	bool ch = true;
-	string Direction;
+	std::string Direction;
 	float speed = 0.7;
 public:
 	
-	string shape2;
-	Canon(FPosition p, string name, string shape, string shape2, Area area, string Direction, string Type) : Object(p,name,shape,area, Type)
+	std::string shape2;
+	Canon(FPosition p, std::string name, std::string shape, std::string shape2, Area area, std::string Direction,
+		std::string Type) : Object(p,name,shape,area, Type)
 	{
 		this->shape2 = shape2;
 		this->Direction = Direction;
@@ -23,7 +24,7 @@ public:
 		Move(Direction);
 		SwapShape();
 	}
-	void Move(string D)
+	void Move(std::string D)
 	{
 		if (D == "ก่")
 		{
@@ -48,7 +49,7 @@ public:
 	}
 	void SwapShape()
 	{
-		string tmp = shape;
+		std::string tmp = shape;
 		shape = shape2; 
 		shape2 = tmp;
 	}

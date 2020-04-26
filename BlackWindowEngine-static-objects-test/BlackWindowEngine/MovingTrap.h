@@ -1,18 +1,19 @@
 #pragma once
 #include "Object.h"
 #include "WorldOutliner.h"
-#include "SceneManager.h"
+
+
 class MovingTrap : public Object {
 private:
 	
 public:
-	string Direction;
-	string ID;
+	std::string Direction;
+	std::string ID;
 	MovingTrap()
 	{
 
 	}
-	MovingTrap(FPosition Position, string Name, string Shape, string Direction, string Type) : Object(Position, Name, Shape, Direction, Type)
+	MovingTrap(FPosition Position, std::string Name, std::string Shape, std::string Direction, std::string Type) : Object(Position, Name, Shape, Direction, Type)
 	{
 		ID = Name;
 		this->Direction = Direction;

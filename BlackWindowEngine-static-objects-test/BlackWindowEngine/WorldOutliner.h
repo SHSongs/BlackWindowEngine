@@ -5,13 +5,12 @@
 #include "Tools.h"
 
 
-using namespace std;
 
 class WorldOutliner
 {
 private:
 
-	static vector<Object*> objects;
+	static std::vector<Object*> objects;
 public:
 
 	
@@ -19,7 +18,7 @@ public:
 	{
 		objects.push_back(o);
 	}
-	static Object* FindObject(string name)
+	static Object* FindObject(std::string name)
 	{
 		for (auto& o : objects)
 		{
@@ -30,7 +29,7 @@ public:
 		}
 
 		Tools::cersorMoveTo(Position({ 20, 30 }));
-		cout << "ERROR : Not found  " << name << endl;
+		std::cout << "ERROR : Not found  " << name << std::endl;
 		Tools::backCersor();
 		return nullptr;
 	}
@@ -52,10 +51,10 @@ public:
 			}
 		}
 	}
-	vector<Object*> GetObjects()
+	std::vector<Object*> GetObjects()
 	{
 		return objects;
 	}
 };
 
-vector<Object*> WorldOutliner::objects;
+std::vector<Object*> WorldOutliner::objects;
