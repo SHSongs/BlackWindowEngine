@@ -14,7 +14,7 @@ private:
 public:
 	
 	int Size = 30;
-	TestScene();;
+	TestScene();
 	void Create();
 
 	void Render(float dt);

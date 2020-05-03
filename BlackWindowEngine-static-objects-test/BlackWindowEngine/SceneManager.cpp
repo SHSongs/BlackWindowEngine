@@ -2,7 +2,6 @@
 
 SceneManager::SceneManager()
 {
-	worldOutliner = WorldOutliner();
 }
 
 void SceneManager::Create()
@@ -58,4 +57,5 @@ WorldOutliner SceneManager::getWorldOutliner()
 
 void SceneManager::SceneChange(SceneManager scene)
 {
+	
 }

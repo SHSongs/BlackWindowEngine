@@ -8,6 +8,8 @@
 #include "WorldOutliner.h"
 
 
+
+
 class SceneManager
 {
 protected:
@@ -15,7 +17,7 @@ public:
 	WorldOutliner worldOutliner;
 	Map* mapPointer;
 
-	SceneManager();;
+	SceneManager();
 
 	virtual void Create();;			//Called when the Application is first created.
 	virtual void Render(float dt);;

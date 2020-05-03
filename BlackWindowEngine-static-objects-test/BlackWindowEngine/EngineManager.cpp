@@ -24,6 +24,7 @@ void EngineManager::Game()
 
 
 		scene->mapPointer->CopyCurrentMapANDRemoveCurrentMap();
+		
 
 
 		//Game

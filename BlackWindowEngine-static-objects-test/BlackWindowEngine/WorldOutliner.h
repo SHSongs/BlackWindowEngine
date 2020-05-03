@@ -19,5 +19,6 @@ public:
 
 	static void Destroy(Object* object);
 
+	static void Clear();
 	std::vector<Object*> GetObjects();
 };

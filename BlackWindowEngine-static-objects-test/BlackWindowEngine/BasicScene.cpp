@@ -2,6 +2,8 @@
 
 BasicScene::BasicScene(): SceneManager()
 {
+
+	mapPointer = new Map(30, 30);
 }
 
 void BasicScene::Create()

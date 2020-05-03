@@ -32,8 +32,7 @@ public:
 
 	Player(FPosition p, std::string name, std::string shape, std::string Type);
 
-	void Work() // 랜더 안에서 돌아가는 Work
-	;
+	void Work(); // 랜더 안에서 돌아가는 Work
 
 	void Control();
 
