@@ -15,6 +15,7 @@ Wall::Wall(FPosition p, std::string name, std::string shape, std::string Type): 
 Wall::Wall(FPosition p, std::string name, std::string shape, Area area, std::string Type): Object(
 	p, name, shape, area, Type)
 {
+	
 }
 
 void Wall::Work()
