@@ -14,24 +14,18 @@ void TestScene::Create()
 	WorldOutliner::AddObject(new MovingTrap(FPosition({28, 28}), "MovingTrap_3", "VV", "¡è", "MovingTrap"));
 	WorldOutliner::AddObject(new MovingTrap(FPosition({28, 14}), "MovingTrap_4", "VV", "¡è", "MovingTrap"));
 	WorldOutliner::AddObject(new MovingTrap(FPosition({2, 2}), "MovingTrap_5", "¢È", "¡ç", "MovingTrap"));
-	WorldOutliner::AddObject(new MovingTrap(FPosition({6, 3}), "MovingTrap_6", "¢È", "¡ç", "MovingTrap"));
-
-
+	WorldOutliner::AddObject(new MovingTrap(FPosition({ 6, 3 }), "MovingTrap_6", "¢È", "¡ç", "MovingTrap"));
 	WorldOutliner::AddObject(new Wall(FPosition({3, 4}), "Hwall1", Area({10, 1})));
 	WorldOutliner::AddObject(new Wall(FPosition({1, 10}), "Hwall2", Area({15, 1})));
 	WorldOutliner::AddObject(new Wall(FPosition({1, 20}), "Hwall3", Area({10, 1})));
 	WorldOutliner::AddObject(new Wall(FPosition({10, 2}), "Vwall1", Area({1, 7})));
 	WorldOutliner::AddObject(new Wall(FPosition({7, 8}), "Vwall2", Area({1, 7})));
 
-
 	Map_Make();
 }
 
 void TestScene::Render(float dt)
 {
-	//		worldOutliner.FindObject("MovingTrap_1")->TryWork();
-
-	//dynamic_cast<Player*>(worldOutliner.FindObject("canon1"))->getW();
 }
 
 void TestScene::Resize(int x, int y)
