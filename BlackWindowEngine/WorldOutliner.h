@@ -17,6 +17,8 @@ public:
 
 	static Object* FindObject(std::string name);
 
+	static void AllDestroy();
+	
 	static void Destroy(Object* object);
 
 	std::vector<Object*> GetObjects();

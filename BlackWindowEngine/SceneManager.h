@@ -12,6 +12,7 @@ class SceneManager
 {
 protected:
 public:
+	SceneManager* nextScene;
 	WorldOutliner worldOutliner;
 	Map* mapPointer;
 
@@ -30,5 +31,5 @@ public:
 
 	WorldOutliner getWorldOutliner();
 
-	void SceneChange(SceneManager scene);
+	void SceneChange(SceneManager* scene);
 };

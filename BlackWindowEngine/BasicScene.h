@@ -8,6 +8,7 @@ using namespace std;
 class BasicScene : public SceneManager
 {
 public:
+	int Size = 30;
 	BasicScene();
 
 	void Create();

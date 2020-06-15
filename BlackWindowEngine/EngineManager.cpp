@@ -1,5 +1,6 @@
 #include "EngineManager.h"
 
+
 EngineManager::EngineManager()
 {
 	this->EngineManager::EngineManager(new BasicScene());
@@ -27,13 +28,20 @@ void EngineManager::Game()
 
 
 		//Game
-		scene->Render(time.deltaTime);
+		scene->Render(time.deltaTime); 
+		Work();
 		//end
 
+		if(scene->nextScene)		//nextScene is not null
+		{
+			system("cls");
+			WorldOutliner::AllDestroy();
+			this->scene = scene->nextScene;
 
+			scene->Create();
+			scene->mapPointer->Print();
+		}
 		BoomCheck();
-
-		Work();
 
 		Print_Map();
 
@@ -93,4 +101,5 @@ void EngineManager::Print_Map()
 
 EngineManager::~EngineManager()
 {
+	
 }

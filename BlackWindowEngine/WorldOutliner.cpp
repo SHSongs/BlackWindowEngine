@@ -24,6 +24,16 @@ Object* WorldOutliner::FindObject(std::string name)
 	return nullptr;
 }
 
+void WorldOutliner::AllDestroy()
+{
+	auto iter = objects.begin();
+
+	for (iter; iter != objects.end();)
+	{
+		iter = objects.erase(iter);
+	}
+}
+
 void WorldOutliner::Destroy(Object* object)
 {
 	auto iter = objects.begin();

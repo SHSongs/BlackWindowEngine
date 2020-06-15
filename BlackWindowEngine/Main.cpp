@@ -6,7 +6,7 @@
 
 #include "EngineManager.h"
 #include "TestScene.h"
-
+#include "BasicScene.h"
 
 using namespace std;
 

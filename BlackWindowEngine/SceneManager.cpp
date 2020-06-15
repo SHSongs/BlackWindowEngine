@@ -56,6 +56,7 @@ WorldOutliner SceneManager::getWorldOutliner()
 	return worldOutliner;
 }
 
-void SceneManager::SceneChange(SceneManager scene)
+void SceneManager::SceneChange(SceneManager* scene)
 {
+	nextScene = scene;
 }
