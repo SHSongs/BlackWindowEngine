@@ -2,11 +2,11 @@
 ## BlackWindowEngine
 ## 검은 창 엔진
 
-## contribute
+## contributer
+- [SHSongs](https://github.com/SHSongs) engine 제작
+- [Hotteock3388](https://github.com/Hotteock3388) DemoGame 제작
+- [startergate](https://github.com/startergate) bug fix
 
-### 
-###
-###
 
 ## Example
 ![Example Game](Example.png)
