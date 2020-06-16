@@ -24,6 +24,7 @@ void TestScene::Create()
 	worldOutliner.AddObject(new Wall(FPosition({ 1, 20 }), "Hwall3", Area({ 10, 1 })));
 	worldOutliner.AddObject(new Wall(FPosition({ 10, 2 }), "Vwall1", Area({ 1, 7 })));
 	worldOutliner.AddObject(new Wall(FPosition({ 7, 8 }), "Vwall2", Area({ 1, 7 })));
+	worldOutliner.AddObject(new Wall(FPosition({ 10, 8 }), "Vwall4", Area({ 1, 7 })));
 
 
 	Map_Make();
@@ -34,11 +35,11 @@ void TestScene::Create()
 
 void TestScene::Render(float dt)
 {
-	if (Count < 0)
+	/*if (Count < 0)
 	{
 		SceneChange(new BasicScene);
 	}
-	Count--;
+	Count--;*/
 	//		worldOutliner.FindObject("MovingTrap_1")->TryWork();
 
 	//dynamic_cast<Player*>(worldOutliner.FindObject("canon1"))->getW();
