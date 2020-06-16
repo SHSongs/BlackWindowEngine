@@ -67,3 +67,17 @@ public:
     virtual void OnCollision(Object* other) {}
 }
 ```
+
+### SceneChange
+```
+// TestScene.cpp
+void TestScene::Render(float dt)
+{
+	if (Count < 0)
+	{
+		SceneChange(new BasicScene);
+	}
+	Count--;
+}
+// 향후 object에서도 사용 가능하게 개선 예정
+```
