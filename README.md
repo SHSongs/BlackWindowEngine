@@ -2,11 +2,11 @@
 ## BlackWindowEngine
 ## 검은 창 엔진
 
-## contribute
+## contributer
+- [SHSongs](https://github.com/SHSongs) engine 제작
+- [Hotteock3388](https://github.com/Hotteock3388) DemoGame 제작
+- [startergate](https://github.com/startergate) bug fix
 
-### 
-###
-###
 
 ## Example
 ![Example Game](Example.png)
@@ -66,4 +66,18 @@ public:
 
     virtual void OnCollision(Object* other) {}
 }
+```
+
+### SceneChange
+```
+// TestScene.cpp
+void TestScene::Render(float dt)
+{
+	if (Count < 0)
+	{
+		SceneChange(new BasicScene);		//BasicScene extend SceneManager
+	}
+	Count--;
+}
+// 향후 object에서도 사용 가능하게 개선 예정
 ```
