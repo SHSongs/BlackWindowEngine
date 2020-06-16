@@ -75,7 +75,7 @@ void TestScene::Render(float dt)
 {
 	if (Count < 0)
 	{
-		SceneChange(new BasicScene);
+		SceneChange(new BasicScene);		//BasicScene extend SceneManager
 	}
 	Count--;
 }
