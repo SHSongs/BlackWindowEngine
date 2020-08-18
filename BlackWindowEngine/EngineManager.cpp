@@ -32,20 +32,20 @@ void EngineManager::Game()
 		Work();
 		//end
 
-		if(scene->nextScene)		//nextScene is not null
-		{
-			system("cls");
-			WorldOutliner::AllDestroy();
-			this->scene = scene->nextScene;
-
-			scene->Create();
-			scene->mapPointer->Print();
-		}
+	
 		BoomCheck();
 
 		Print_Map();
 
-
+		if (scene->nextScene)		//nextScene is not null
+		{
+			system("cls");
+			WorldOutliner::AllDestroy();
+			this->scene = scene->nextScene;
+			scene->Create();
+			scene->nextScene = nullptr;
+			scene->mapPointer->Print();
+		}
 		time.EndMeasure();
 	}
 }

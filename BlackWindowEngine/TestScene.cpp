@@ -15,6 +15,8 @@ void TestScene::Create()
 	worldOutliner.AddObject(new MovingTrap(FPosition({ 25, 20 }), "MovingTrap_2", "HH", "ก็", "MovingTrap"));
 	worldOutliner.AddObject(new MovingTrap(FPosition({ 28, 28 }), "MovingTrap_3", "VV", "ก่", "MovingTrap"));
 	worldOutliner.AddObject(new MovingTrap(FPosition({ 28, 14 }), "MovingTrap_4", "VV", "ก่", "MovingTrap"));
+	worldOutliner.AddObject(new MovingTrap(FPosition({ 22, 14 }), "MovingTrap_4", "VV", "ก่", "MovingTrap"));
+	worldOutliner.AddObject(new MovingTrap(FPosition({ 25, 14 }), "MovingTrap_4", "VV", "ก่", "MovingTrap"));
 	worldOutliner.AddObject(new MovingTrap(FPosition({ 2, 2 }), "MovingTrap_5", "ขศ", "ก็", "MovingTrap"));
 	worldOutliner.AddObject(new MovingTrap(FPosition({ 6, 3 }), "MovingTrap_6", "ขศ", "ก็", "MovingTrap"));
 
@@ -24,12 +26,14 @@ void TestScene::Create()
 	worldOutliner.AddObject(new Wall(FPosition({ 1, 20 }), "Hwall3", Area({ 10, 1 })));
 	worldOutliner.AddObject(new Wall(FPosition({ 10, 2 }), "Vwall1", Area({ 1, 7 })));
 	worldOutliner.AddObject(new Wall(FPosition({ 7, 8 }), "Vwall2", Area({ 1, 7 })));
+	worldOutliner.AddObject(new Wall(FPosition({ 14, 10 }), "Vwall4", Area({ 2, 7 })));
 	worldOutliner.AddObject(new Wall(FPosition({ 10, 8 }), "Vwall4", Area({ 1, 7 })));
 
 
 	Map_Make();
 
-	
+
+	SceneChange(new BasicScene);
 	
 }
 

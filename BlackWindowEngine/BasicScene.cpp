@@ -1,5 +1,7 @@
 #include "BasicScene.h"
 
+
+#include "TestScene.h"
 #include "Wall.h"
 
 BasicScene::BasicScene(): SceneManager()
@@ -18,6 +20,7 @@ void BasicScene::Create()
 
 void BasicScene::Render(float dt)
 {
+	SceneChange(new TestScene);
 }
 
 void BasicScene::Resize(int x, int y)
