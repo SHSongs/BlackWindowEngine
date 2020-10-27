@@ -9,7 +9,7 @@
 
 
 ## Example
-![Example Game](Example.png)
+![Example Game](Example.PNG)
 ## 사용 방법 
 
 ### LifeCycle
